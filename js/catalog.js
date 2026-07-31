@@ -1,0 +1,110 @@
+import {
+  collection,
+  getDocs,
+  query,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { db } from "./firebase.js";
+
+export function setupNavbar() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector("#navLinks");
+
+  if (!navToggle || !navLinks) {
+    return;
+  }
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+export async function getAvailableProducts() {
+  const productsQuery = query(collection(db, "products"));
+  const querySnapshot = await getDocs(productsQuery);
+
+  return querySnapshot.docs
+    .map((documentSnapshot) => ({
+      productId: documentSnapshot.id,
+      ...documentSnapshot.data(),
+    }))
+    .filter((product) => product.available !== false);
+}
+
+export function createProductCard(product) {
+  const productId = encodeURIComponent(product.productId || product.id || "");
+  const productName = escapeHtml(product.name || "Untitled Gift");
+  const productCategory = escapeHtml(product.category || "Customized Gift");
+  const productDescription = escapeHtml(
+    getShortDescription(product.description || "Beautifully customized gift from DS Decor.")
+  );
+  const productImage = escapeHtml(
+    product.image || "https://placehold.co/900x700/f8f8f8/e91e63?text=DS+Decor"
+  );
+  const productPrice = formatPrice(product.price);
+
+  return `
+    <article class="product-card">
+      <img
+        class="product-image"
+        src="${productImage}"
+        alt="${productName}"
+        loading="lazy"
+      />
+      <div class="product-card-body">
+        <p class="product-category">${productCategory}</p>
+        <h3 class="product-title">${productName}</h3>
+        <p class="product-description">${productDescription}</p>
+        <div class="product-footer">
+          <span class="product-price">${productPrice}</span>
+          <div class="product-actions">
+            <a class="btn btn-outline" href="product.html?id=${productId}">View Details</a>
+            <a class="btn btn-primary" href="checkout.html?id=${productId}">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+export function renderProductList(container, products, emptyMessage) {
+  if (!container) {
+    return;
+  }
+
+  if (!products.length) {
+    showMessage(container, emptyMessage);
+    return;
+  }
+
+  container.innerHTML = products.map(createProductCard).join("");
+}
+
+export function showMessage(container, message) {
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = `<div class="message-box">${escapeHtml(message)}</div>`;
+}
+
+export function formatPrice(price) {
+  return `&#8377;${Number(price || 0).toLocaleString("en-IN")}`;
+}
+
+export function getShortDescription(description) {
+  if (description.length <= 95) {
+    return description;
+  }
+
+  return `${description.slice(0, 92)}...`;
+}
+
+export function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}

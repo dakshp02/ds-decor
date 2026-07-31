@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+                        META DATA
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>DS Decor | Admin Dashboard</title>
+
+    <meta
+        name="description"
+        content="DS Decor Admin Dashboard">
+
+    <meta
+        name="robots"
+        content="noindex,nofollow">
+
+    <!-- =====================================================
+                        GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+                        FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- =====================================================
+                        STYLESHEET
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+                        ADMIN HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-container">
+
+            <a
+                href="../index.html"
+                class="brand">
+
+                <span class="brand-mark">
+
+                    DS
+
+                </span>
+
+                <span>
+
+                    DS Decor Admin
+
+                </span>
+
+            </a>
+
+            <button
+                id="logoutBtn"
+                class="logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- =====================================================
+                        MAIN
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+        <div class="dashboard-container">
+
+            <!-- =====================================================
+                            PAGE HEADER
+            ====================================================== -->
+
+            <section class="dashboard-title">
+
+                <p class="eyebrow">
+
+                    ADMIN PANEL
+
+                </p>
+
+                <h1>
+
+                    Dashboard
+
+                </h1>
+
+                <p>
+
+                    Manage customer orders, products,
+                    and monitor your business from one place.
+
+                </p>
+
+            </section>
+
+            <!-- =====================================================
+                    DASHBOARD CARDS
+===================================================== -->
+
+
+<!-- =====================================================
+                    DASHBOARD CARDS
+===================================================== -->
+
+<section class="dashboard-cards">
+
+    <!-- =====================================================
+                        TOTAL ORDERS
+    ====================================================== -->
+
+    <article class="dashboard-card">
+
+        <div class="card-icon pink">
+
+            <i class="fa-solid fa-box"></i>
+
+        </div>
+
+        <div class="card-content">
+
+            <p>
+
+                Total Orders
+
+            </p>
+
+            <h2 id="totalOrders">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </article>
+
+    <!-- =====================================================
+                        PENDING
+    ====================================================== -->
+
+    <article class="dashboard-card">
+
+        <div class="card-icon orange">
+
+            <i class="fa-solid fa-clock"></i>
+
+        </div>
+
+        <div class="card-content">
+
+            <p>
+
+                Pending
+
+            </p>
+
+            <h2 id="pendingOrders">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </article>
+
+    <!-- =====================================================
+                        COMPLETED
+    ====================================================== -->
+
+    <article class="dashboard-card">
+
+        <div class="card-icon green">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+        </div>
+
+        <div class="card-content">
+
+            <p>
+
+                Completed
+
+            </p>
+
+            <h2 id="completedOrders">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </article>
+
+    <!-- =====================================================
+                        REVENUE
+    ====================================================== -->
+
+    <article class="dashboard-card">
+
+        <div class="card-icon blue">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <div class="card-content">
+
+            <p>
+
+                Revenue
+
+            </p>
+
+            <h2 id="totalRevenue">
+
+                ₹0
+
+            </h2>
+
+        </div>
+
+    </article>
+
+</section>
+
+<!-- =====================================================
+                    QUICK ACTIONS
+===================================================== -->
+
+<section class="dashboard-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="eyebrow">
+
+                QUICK ACTIONS
+
+            </p>
+
+            <h2>
+
+                Manage Your Store
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="quick-actions">
+
+        <a
+            href="orders.html"
+            class="action-card">
+
+            <div class="action-icon pink">
+
+                <i class="fa-solid fa-box-open"></i>
+
+            </div>
+
+            <h3>
+
+                Manage Orders
+
+            </h3>
+
+            <p>
+
+                View, update and manage all customer orders.
+
+            </p>
+
+        </a>
+
+        <a
+            href="#"
+            class="action-card">
+
+            <div class="action-icon blue">
+
+                <i class="fa-solid fa-plus"></i>
+
+            </div>
+
+            <h3>
+
+                Add Product
+
+            </h3>
+
+            <p>
+
+                Add a new product to your catalogue.
+
+            </p>
+
+        </a>
+
+        <a
+            href="#"
+            class="action-card">
+
+            <div class="action-icon green">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <h3>
+
+                Sales Analytics
+
+            </h3>
+
+            <p>
+
+                Monitor revenue and order performance.
+
+            </p>
+
+        </a>
+
+        <a
+            href="#"
+            class="action-card">
+
+            <div class="action-icon orange">
+
+                <i class="fa-solid fa-gear"></i>
+
+            </div>
+
+            <h3>
+
+                Settings
+
+            </h3>
+
+            <p>
+
+                Configure your admin account and preferences.
+
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+        </div>
+
+    </main>
+
+    <!-- =====================================================
+                        SCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="dashboard.js">
+    </script>
+
+</body>
+
+</html>

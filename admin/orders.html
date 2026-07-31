@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+                        META DATA
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>DS Decor | Orders</title>
+
+    <meta
+        name="description"
+        content="Manage customer orders">
+
+    <meta
+        name="robots"
+        content="noindex,nofollow">
+
+    <!-- =====================================================
+                        GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+                        FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- =====================================================
+                        STYLESHEET
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="orders.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+                        HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-container">
+
+            <a
+                href="dashboard.html"
+                class="brand">
+
+                <span class="brand-mark">
+
+                    DS
+
+                </span>
+
+                <span>
+
+                    DS Decor Admin
+
+                </span>
+
+            </a>
+
+            <div class="header-actions">
+
+                <a
+                    href="dashboard.html"
+                    class="dashboard-btn">
+
+                    <i class="fa-solid fa-table-columns"></i>
+
+                    Dashboard
+
+                </a>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- =====================================================
+                        MAIN
+    ====================================================== -->
+
+    <main class="orders-main">
+
+        <div class="dashboard-container">
+
+            <!-- =====================================================
+                            PAGE TITLE
+            ====================================================== -->
+
+            <section class="orders-title">
+
+                <p class="eyebrow">
+
+                    ORDER MANAGEMENT
+
+                </p>
+
+                <h1>
+
+                    Customer Orders
+
+                </h1>
+
+                <p>
+
+                    View, search, filter and update all customer orders.
+
+                </p>
+
+            </section>
+
+            <!-- =====================================================
+                        SEARCH & FILTER
+            ====================================================== -->
+
+            <section class="orders-toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search by Order ID, Customer or Phone">
+
+                </div>
+
+                <select id="statusFilter">
+
+                    <option value="All">
+
+                        All Orders
+
+                    </option>
+
+                    <option value="Pending">
+
+                        Pending
+
+                    </option>
+
+                    <option value="Confirmed">
+
+                        Confirmed
+
+                    </option>
+
+                    <option value="Shipped">
+
+                        Shipped
+
+                    </option>
+
+                    <option value="Delivered">
+
+                        Delivered
+
+                    </option>
+
+                    <option value="Cancelled">
+
+                        Cancelled
+
+                    </option>
+
+                </select>
+
+                <button
+                    id="refreshBtn"
+                    class="refresh-btn">
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh
+
+                </button>
+
+            </section>
+
+            <!-- =====================================================
+                    ORDERS TABLE
+===================================================== -->
+
+<section class="orders-section">
+
+    <div class="table-wrapper">
+
+        <table class="orders-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+
+                        Order ID
+
+                    </th>
+
+                    <th>
+
+                        Customer
+
+                    </th>
+
+                    <th>
+
+                        Phone
+
+                    </th>
+
+                    <th>
+
+                        Amount
+
+                    </th>
+
+                    <th>
+
+                        Status
+
+                    </th>
+
+                    <th>
+
+                        Delivery Date
+
+                    </th>
+
+                    <th>
+
+                        Ordered On
+
+                    </th>
+
+                    <th>
+
+                        Manage
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="ordersTableBody">
+
+                <!-- =====================================================
+                            LOADING STATE
+                ====================================================== -->
+
+                <tr>
+
+                    <td
+                        colspan="8"
+                        class="loading-cell">
+
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+
+                        Loading Orders...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+                    ORDER DETAILS MODAL
+===================================================== -->
+
+<div
+    id="orderModal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <!-- =====================================================
+                            MODAL HEADER
+        ====================================================== -->
+
+        <div class="modal-header">
+
+            <h2>
+
+                Order Details
+
+            </h2>
+
+            <button
+                id="closeModal"
+                class="close-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <!-- =====================================================
+                            ORDER INFORMATION
+        ====================================================== -->
+
+        <div
+            id="orderDetails"
+            class="order-details">
+
+            <!-- Loaded using orders.js -->
+
+        </div>
+
+        <!-- =====================================================
+                        STATUS UPDATE
+        ====================================================== -->
+
+        <div class="status-section">
+
+            <label for="updateStatus">
+
+                Update Status
+
+            </label>
+
+            <select id="updateStatus">
+
+                <option value="Pending">
+
+                    Pending
+
+                </option>
+
+                <option value="Confirmed">
+
+                    Confirmed
+
+                </option>
+
+                <option value="Shipped">
+
+                    Shipped
+
+                </option>
+
+                <option value="Delivered">
+
+                    Delivered
+
+                </option>
+
+                <option value="Cancelled">
+
+                    Cancelled
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- =====================================================
+                    MODAL ACTIONS
+===================================================== -->
+
+<div class="modal-actions">
+
+    <button
+        id="updateOrderBtn"
+        class="update-btn">
+
+        <i class="fa-solid fa-floppy-disk"></i>
+
+        Save Changes
+
+    </button>
+
+</div>
+
+<!-- =====================================================
+                    DANGER ZONE
+===================================================== -->
+
+<div class="danger-zone">
+
+    <h3>
+
+        Danger Zone
+
+    </h3>
+
+    <p>
+
+        Permanently delete this order.
+        This action cannot be undone.
+
+    </p>
+
+    <button
+        id="deleteOrderBtn"
+        class="delete-btn">
+
+        <i class="fa-solid fa-trash"></i>
+
+        Delete Order
+
+    </button>
+
+</div>
+</div> <!-- modal-content -->
+
+</div> <!-- orderModal -->
+
+<!-- =====================================================
+                    EMPTY STATE
+===================================================== -->
+
+<section
+    id="emptyState"
+    class="empty-state hidden">
+
+    <div class="empty-icon">
+
+        <i class="fa-solid fa-box-open"></i>
+
+    </div>
+
+    <h2>
+
+        No Orders Found
+
+    </h2>
+
+    <p>
+
+        Orders placed by customers will appear here.
+
+    </p>
+
+</section>
+
+        </div>
+
+    </main>
+
+    <!-- =====================================================
+                        SCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="orders.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,607 @@
+/* =====================================================
+                ADMIN LOGIN PAGE
+                DS DECOR
+===================================================== */
+
+
+/* =====================================================
+                    GOOGLE FONT
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+
+/* =====================================================
+                    ROOT VARIABLES
+===================================================== */
+
+:root{
+
+    --color-primary:#E91E63;
+    --color-primary-dark:#C2185B;
+
+    --color-background:#F7F8FC;
+
+    --color-white:#FFFFFF;
+
+    --color-text:#333333;
+
+    --color-muted:#6C757D;
+
+    --color-border:#E8E8E8;
+
+    --shadow-card:
+        0 10px 30px rgba(0,0,0,.08);
+
+    --shadow-hover:
+        0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================================
+                    RESET
+===================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+}
+
+
+/* =====================================================
+                    LOGIN PAGE
+===================================================== */
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+
+/* =====================================================
+                    LOGIN CONTAINER
+===================================================== */
+
+.login-container{
+
+    width:100%;
+
+    max-width:480px;
+
+}
+
+
+/* =====================================================
+                    LOGIN CARD
+===================================================== */
+
+.login-card{
+
+    background:var(--color-white);
+
+    border-radius:24px;
+
+    border:1px solid var(--color-border);
+
+    box-shadow:var(--shadow-card);
+
+    padding:50px;
+
+}
+/* =====================================================
+                    LOGIN BRAND
+===================================================== */
+
+.login-brand{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.brand{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--color-text);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+.brand-mark{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:"Playfair Display", Georgia, serif;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+}
+
+.login-brand p{
+
+    color:var(--color-muted);
+
+    font-size:1rem;
+
+}
+
+/* =====================================================
+                    LOGIN HEADER
+===================================================== */
+
+.login-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.login-header h2{
+
+    font-size:1.8rem;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+    margin-bottom:14px;
+
+}
+
+.login-header p{
+
+    color:var(--color-muted);
+
+    line-height:1.8;
+
+    font-size:.98rem;
+
+}
+/* =====================================================
+                    LOGIN FORM
+===================================================== */
+
+.login-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+
+/* =====================================================
+                    FORM GROUP
+===================================================== */
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--color-text);
+
+    margin-bottom:10px;
+
+}
+
+
+/* =====================================================
+                    INPUT FIELD
+===================================================== */
+
+.form-group input{
+
+    width:100%;
+
+    height:56px;
+
+    padding:0 18px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:14px;
+
+    background:var(--color-white);
+
+    font-size:1rem;
+
+    color:var(--color-text);
+
+    font-family:inherit;
+
+    transition:.25s ease;
+
+}
+
+.form-group input::placeholder{
+
+    color:#999;
+
+}
+
+.form-group input:focus{
+
+    outline:none;
+
+    border-color:var(--color-primary);
+
+    box-shadow:0 0 0 4px rgba(233,30,99,.10);
+
+}
+
+
+/* =====================================================
+                PASSWORD WRAPPER
+===================================================== */
+
+.password-wrapper{
+
+    position:relative;
+
+}
+
+.password-wrapper input{
+
+    padding-right:58px;
+
+}
+
+
+/* =====================================================
+                TOGGLE PASSWORD
+===================================================== */
+
+.toggle-password{
+
+    position:absolute;
+
+    top:50%;
+
+    right:18px;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--color-muted);
+
+    font-size:1rem;
+
+    transition:.25s;
+
+}
+
+.toggle-password:hover{
+
+    color:var(--color-primary);
+
+}
+
+
+/* =====================================================
+                LOGIN BUTTON
+===================================================== */
+
+.login-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.login-btn:hover{
+
+    background:var(--color-primary-dark);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+/* =====================================================
+                ERROR MESSAGE
+===================================================== */
+
+.error-message{
+
+    min-height:20px;
+
+    text-align:center;
+
+    color:#dc3545;
+
+    font-size:.92rem;
+
+}
+/* =====================================================
+                    LOGIN FOOTER
+===================================================== */
+
+.login-footer{
+
+    margin-top:35px;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--color-border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+/* =====================================================
+                BACK TO WEBSITE
+===================================================== */
+
+.back-home{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:var(--color-muted);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    transition:.25s;
+
+}
+
+.back-home:hover{
+
+    color:var(--color-primary);
+
+}
+
+
+/* =====================================================
+                SECURITY INFO
+===================================================== */
+
+.security-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--color-muted);
+
+    font-size:.9rem;
+
+    text-align:center;
+
+}
+
+.security-info i{
+
+    color:#28a745;
+
+}
+
+
+/* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+@media(max-width:768px){
+
+.login-page{
+
+    padding:30px 20px;
+
+}
+
+.login-card{
+
+    padding:40px 30px;
+
+}
+
+.brand-logo{
+
+    width:70px;
+
+    height:70px;
+
+    font-size:1.8rem;
+
+}
+
+.login-brand h1{
+
+    font-size:1.8rem;
+
+}
+
+.login-header h2{
+
+    font-size:1.6rem;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.login-card{
+
+    padding:30px 22px;
+
+    border-radius:20px;
+
+}
+
+.brand-logo{
+
+    width:60px;
+
+    height:60px;
+
+    font-size:1.5rem;
+
+}
+
+.login-brand h1{
+
+    font-size:1.6rem;
+
+}
+
+.login-header h2{
+
+    font-size:1.4rem;
+
+}
+
+.login-header p{
+
+    font-size:.92rem;
+
+}
+
+.form-group input{
+
+    height:52px;
+
+}
+
+.login-btn{
+
+    height:52px;
+
+}
+
+}
+
+
+/* =====================================================
+                    UTILITIES
+===================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}

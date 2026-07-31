@@ -1,0 +1,790 @@
+/* =====================================================
+                DS DECOR ADMIN DASHBOARD
+===================================================== */
+
+
+/* =====================================================
+                    GOOGLE FONT
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+
+/* =====================================================
+                    ROOT VARIABLES
+===================================================== */
+
+:root{
+
+    --color-primary:#E91E63;
+
+    --color-primary-dark:#C2185B;
+
+    --color-white:#FFFFFF;
+
+    --color-background:#F7F8FC;
+
+    --color-text:#333333;
+
+    --color-muted:#757575;
+
+    --color-border:#E8E8E8;
+
+    --color-success:#22C55E;
+
+    --color-warning:#F59E0B;
+
+    --color-info:#3B82F6;
+
+    --shadow-card:
+        0 10px 28px rgba(0,0,0,.08);
+
+    --shadow-hover:
+        0 18px 45px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================================
+                    RESET
+===================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+
+/* =====================================================
+                CONTAINER
+===================================================== */
+
+.dashboard-container{
+
+    width:100%;
+
+    max-width:1250px;
+
+    margin:0 auto;
+
+    padding:0 24px;
+
+}
+
+
+/* =====================================================
+                HEADER
+===================================================== */
+
+.dashboard-header{
+
+    background:var(--color-white);
+
+    border-bottom:1px solid var(--color-border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+}
+
+
+.dashboard-header .dashboard-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    min-height:80px;
+
+}
+
+
+/* =====================================================
+                    BRAND
+===================================================== */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--color-text);
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+}
+
+
+.brand-mark{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+                LOGOUT BUTTON
+===================================================== */
+
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 22px;
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.logout-btn:hover{
+
+    background:var(--color-primary-dark);
+
+}
+
+
+/* =====================================================
+                    MAIN
+===================================================== */
+
+.dashboard-main{
+
+    padding:60px 0;
+
+}
+
+
+/* =====================================================
+                DASHBOARD TITLE
+===================================================== */
+
+.dashboard-title{
+
+    margin-bottom:50px;
+
+}
+
+
+.dashboard-title h1{
+
+    font-size:3rem;
+
+    margin:10px 0 15px;
+
+    font-family:"Playfair Display",serif;
+
+}
+
+
+.dashboard-title p{
+
+    color:var(--color-muted);
+
+    max-width:650px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+                    EYEBROW
+===================================================== */
+
+.eyebrow{
+
+    color:var(--color-primary);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+/* =====================================================
+                    DASHBOARD CARDS
+===================================================== */
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-bottom:60px;
+
+}
+
+
+/* =====================================================
+                    CARD
+===================================================== */
+
+.dashboard-card{
+
+    background:var(--color-white);
+
+    border:1px solid var(--color-border);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:var(--shadow-card);
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+/* =====================================================
+                    CARD ICON
+===================================================== */
+
+.card-icon{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:1.6rem;
+
+    color:var(--color-white);
+
+    flex-shrink:0;
+
+}
+
+
+/* =====================================================
+                    ICON COLORS
+===================================================== */
+
+.pink{
+
+    background:#E91E63;
+
+}
+
+.orange{
+
+    background:#F59E0B;
+
+}
+
+.green{
+
+    background:#22C55E;
+
+}
+
+.blue{
+
+    background:#3B82F6;
+
+}
+
+
+/* =====================================================
+                    CARD CONTENT
+===================================================== */
+
+.card-content{
+
+    flex:1;
+
+}
+
+.card-content p{
+
+    color:var(--color-muted);
+
+    font-size:.95rem;
+
+    margin-bottom:8px;
+
+}
+
+.card-content h2{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--color-text);
+
+}
+/* =====================================================
+                    DASHBOARD SECTION
+===================================================== */
+
+.dashboard-section{
+
+    margin-bottom:60px;
+
+}
+
+
+/* =====================================================
+                    SECTION HEADER
+===================================================== */
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.section-header h2{
+
+    margin-top:8px;
+
+    font-size:2rem;
+
+    font-family:"Playfair Display",serif;
+
+}
+
+
+/* =====================================================
+                VIEW ORDERS BUTTON
+===================================================== */
+
+.view-orders-btn{
+
+    background:var(--color-primary);
+
+    color:var(--color-white);
+
+    text-decoration:none;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.view-orders-btn:hover{
+
+    background:var(--color-primary-dark);
+
+}
+
+
+/* =====================================================
+                    TABLE WRAPPER
+===================================================== */
+
+.orders-table-wrapper{
+
+    background:var(--color-white);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:1px solid var(--color-border);
+
+    box-shadow:var(--shadow-card);
+
+}
+
+
+/* =====================================================
+                    ORDERS TABLE
+===================================================== */
+
+.orders-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+.orders-table thead{
+
+    background:#fafafa;
+
+}
+
+
+.orders-table th{
+
+    text-align:left;
+
+    padding:18px 22px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--color-text);
+
+    border-bottom:1px solid var(--color-border);
+
+}
+
+
+.orders-table td{
+
+    padding:18px 22px;
+
+    border-bottom:1px solid #f1f1f1;
+
+    color:var(--color-muted);
+
+    font-size:.95rem;
+
+}
+
+
+.orders-table tbody tr{
+
+    transition:.25s;
+
+}
+
+
+.orders-table tbody tr:hover{
+
+    background:#fff8fb;
+
+}
+
+
+.orders-table tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+
+/* =====================================================
+                EMPTY ROW
+===================================================== */
+
+.orders-table td[colspan]{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:var(--color-muted);
+
+}
+/* =====================================================
+                    QUICK ACTIONS
+===================================================== */
+
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+/* =====================================================
+                    ACTION CARD
+===================================================== */
+
+.action-card{
+
+    background:var(--color-white);
+
+    border:1px solid var(--color-border);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-decoration:none;
+
+    color:inherit;
+
+    box-shadow:var(--shadow-card);
+
+    transition:.3s;
+
+}
+
+.action-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+/* =====================================================
+                    ACTION ICON
+===================================================== */
+
+.action-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--color-white);
+
+    font-size:1.5rem;
+
+    margin-bottom:22px;
+
+}
+
+
+/* =====================================================
+                    ACTION CONTENT
+===================================================== */
+
+.action-card h3{
+
+    font-size:1.2rem;
+
+    margin-bottom:12px;
+
+    color:var(--color-text);
+
+}
+
+.action-card p{
+
+    color:var(--color-muted);
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+/* =====================================================
+                    RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+.dashboard-cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.quick-actions{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.dashboard-header .dashboard-container{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+.dashboard-title h1{
+
+    font-size:2.3rem;
+
+}
+
+.section-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+
+.orders-table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+.orders-table{
+
+    min-width:850px;
+
+}
+
+.dashboard-cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.quick-actions{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+
+@media(max-width:500px){
+
+.dashboard-main{
+
+    padding:40px 0;
+
+}
+
+.dashboard-card{
+
+    padding:22px;
+
+}
+
+.action-card{
+
+    padding:24px;
+
+}
+
+.logout-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+}
+
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse premium customized gifts, bouquets, hampers, baskets, and gift boxes from DS Decor."
+    />
+    <title>Products | DS Decor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="DS Decor home">
+          <span class="brand-mark">DS</span>
+          <span>DS Decor</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="products.html" aria-current="page">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero products-hero">
+        <div>
+          <p class="eyebrow">DS Decor collection</p>
+          <h1>Shop premium gifts for every occasion.</h1>
+          <p>
+            Browse customized bouquets, hampers, baskets, gift boxes, and
+            celebration-ready keepsakes loaded directly from Firestore.
+          </p>
+        </div>
+      </section>
+
+      <section class="section catalog-section" aria-labelledby="catalogTitle">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">All products</p>
+            <h2 id="catalogTitle">Find the right gift faster</h2>
+            <p id="productCount">Loading products...</p>
+          </div>
+        </div>
+
+        <form class="catalog-controls" id="catalogControls">
+          <div class="field-group search-field">
+            <label for="productSearch">Search products</label>
+            <input
+              id="productSearch"
+              type="search"
+              placeholder="Search bouquets, hampers, gifts..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="categoryFilter">Category</label>
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+
+          <button class="btn btn-outline" id="clearFiltersButton" type="button">
+            Clear Filters
+          </button>
+        </form>
+
+        <div class="product-grid" id="productsGrid" aria-live="polite">
+          <article class="product-card product-card-loading">
+            <div class="image-placeholder"></div>
+            <div class="product-card-body">
+              <div class="loading-line wide"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line short"></div>
+            </div>
+          </article>
+          <article class="product-card product-card-loading">
+            <div class="image-placeholder"></div>
+            <div class="product-card-body">
+              <div class="loading-line wide"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line short"></div>
+            </div>
+          </article>
+          <article class="product-card product-card-loading">
+            <div class="image-placeholder"></div>
+            <div class="product-card-body">
+              <div class="loading-line wide"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line short"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <span class="brand-mark">DS</span>
+            <span>DS Decor</span>
+          </a>
+          <p>Premium customized gifts, bouquets, and hampers for customers across India.</p>
+        </div>
+        <div>
+          <h2>Quick Links</h2>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h2>Categories</h2>
+          <a href="products.html?category=Flower%20Bouquets">Flower Bouquets</a>
+          <a href="products.html?category=Gift%20Hampers">Gift Hampers</a>
+          <a href="products.html?category=Customized%20Gifts">Customized Gifts</a>
+          <a href="admin/login.html" class ="admin-link">Admin Login</a>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <p>WhatsApp: +91 98765 43210</p>
+          <p>Email: hello@dsdecor.example</p>
+          <p>India-wide gifting support</p>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 DS Decor. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/products.js"></script>
+  </body>
+</html>

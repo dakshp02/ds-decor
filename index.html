@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DS Decor creates premium customized gifts, bouquets, hampers, and gift boxes for customers across India."
+    />
+    <title>DS Decor | Premium Customized Gifts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="DS Decor home">
+          <span class="brand-mark">DS</span>
+          <span>DS Decor</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero premium-hero">
+        <div class="hero-content">
+          <p class="eyebrow">Customized gifts across India</p>
+          <h1>Premium gifts crafted for unforgettable moments.</h1>
+          <p class="hero-copy">
+            Discover elegant bouquets, hampers, gift boxes, and personalized
+            keepsakes designed to make birthdays, anniversaries, festivals, and
+            surprises feel truly special.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="products.html">Shop Collection</a>
+            <a class="btn btn-light" href="#featuredProducts">View Best Picks</a>
+          </div>
+          <div class="hero-stats" aria-label="DS Decor highlights">
+            <div>
+              <strong>500+</strong>
+              <span>Gift moments</span>
+            </div>
+            <div>
+              <strong>8+</strong>
+              <span>Gift categories</span>
+            </div>
+            <div>
+              <strong>India</strong>
+              <span>Order support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-strip" aria-label="Store promise">
+        <article>
+          <span>01</span>
+          <h2>Curated gifting</h2>
+          <p>Thoughtfully styled products for every celebration.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>Custom details</h2>
+          <p>Personal touches for names, photos, notes, and occasions.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>Easy ordering</h2>
+          <p>A simple online flow built for secure checkout in Milestone 3.</p>
+        </article>
+      </section>
+
+      <section class="section" aria-labelledby="categoryTitle">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Shop by category</p>
+            <h2 id="categoryTitle">Choose the perfect gift style</h2>
+          </div>
+          <a class="text-link" href="products.html">View all products</a>
+        </div>
+
+        <div class="category-grid visual-grid">
+          <a class="category-card flower-card" href="products.html?category=Flower%20Bouquets">
+            <span>Flower Bouquets</span>
+          </a>
+          <a class="category-card chocolate-card" href="products.html?category=Chocolate%20Bouquets">
+            <span>Chocolate Bouquets</span>
+          </a>
+          <a class="category-card hamper-card" href="products.html?category=Gift%20Hampers">
+            <span>Gift Hampers</span>
+          </a>
+          <a class="category-card custom-card" href="products.html?category=Customized%20Gifts">
+            <span>Customized Gifts</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section featured-section" id="featuredProducts" aria-labelledby="featuredTitle">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Featured products</p>
+            <h2 id="featuredTitle">Handpicked gifting favorites</h2>
+            <p>Featured items are loaded directly from your Firestore products collection.</p>
+          </div>
+          <a class="text-link" href="products.html">Shop all</a>
+        </div>
+
+        <div class="product-grid" id="featuredProductGrid" aria-live="polite">
+          <article class="product-card product-card-loading">
+            <div class="image-placeholder"></div>
+            <div class="product-card-body">
+              <div class="loading-line wide"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line short"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="occasionTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Shop by occasion</p>
+          <h2 id="occasionTitle">Make every celebration feel personal</h2>
+        </div>
+
+        <div class="occasion-grid">
+          <a href="products.html?occasion=Birthday">Birthday Gifts</a>
+          <a href="products.html?occasion=Anniversary">Anniversary Gifts</a>
+          <a href="products.html?occasion=Festival">Festival Hampers</a>
+          <a href="products.html?occasion=Congratulations">Congratulations</a>
+          <a href="products.html?occasion=Wedding">Wedding Gifts</a>
+          <a href="products.html?occasion=Thank%20You">Thank You Gifts</a>
+        </div>
+      </section>
+
+      <section class="section latest-section" aria-labelledby="latestTitle">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Latest products</p>
+            <h2 id="latestTitle">New arrivals from DS Decor</h2>
+            <p>Fresh products from Firestore appear here automatically.</p>
+          </div>
+          <a class="text-link" href="products.html">Browse latest</a>
+        </div>
+
+        <div class="product-grid" id="latestProductGrid" aria-live="polite">
+          <article class="product-card product-card-loading">
+            <div class="image-placeholder"></div>
+            <div class="product-card-body">
+              <div class="loading-line wide"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line short"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section why-section" aria-labelledby="whyTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Why choose DS Decor</p>
+          <h2 id="whyTitle">A premium gifting experience from start to finish</h2>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <h3>Customized Designs</h3>
+            <p>Personalized gifts for names, photos, colors, themes, and special messages.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Beautiful Presentation</h3>
+            <p>Every product is designed to look impressive in photos and in person.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Easy Online Buying</h3>
+            <p>The website is being built for simple browsing, checkout, and secure payments.</p>
+          </article>
+          <article class="benefit-card">
+            <h3>Occasion Ready</h3>
+            <p>Birthday, anniversary, festive, and surprise gifting collections in one place.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section testimonials-section" aria-labelledby="testimonialTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Customer love</p>
+          <h2 id="testimonialTitle">What customers say</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <p>"The bouquet looked premium and was packed beautifully. Perfect for a birthday surprise."</p>
+            <strong>Ananya R.</strong>
+          </article>
+          <article class="testimonial-card">
+            <p>"Loved the customization. The final hamper felt personal, elegant, and gift-ready."</p>
+            <strong>Priya M.</strong>
+          </article>
+          <article class="testimonial-card">
+            <p>"Great collection for festivals. The presentation made the gift feel very special."</p>
+            <strong>Rohan S.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="newsletter-section" aria-labelledby="newsletterTitle">
+        <div>
+          <p class="eyebrow">Stay inspired</p>
+          <h2 id="newsletterTitle">Get gifting ideas for upcoming occasions.</h2>
+        </div>
+        <form class="newsletter-form">
+          <label class="sr-only" for="newsletterEmail">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="Enter your email" />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
+      </section>
+
+      <section class="cta-section">
+        <div>
+          <p class="eyebrow">Ready to gift beautifully?</p>
+          <h2>Explore premium personalized gift options from DS Decor.</h2>
+        </div>
+        <a class="btn btn-primary" href="products.html">Browse Products</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <span class="brand-mark">DS</span>
+            <span>DS Decor</span>
+          </a>
+          <p>Premium customized gifts, bouquets, and hampers for customers across India.</p>
+        </div>
+        <div>
+          <h2>Quick Links</h2>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="admin/login.html" class ="admin-link">Admin Login</a>
+        </div>
+        <div>
+          <h2>Categories</h2>
+          <a href="products.html?category=Flower%20Bouquets">Flower Bouquets</a>
+          <a href="products.html?category=Gift%20Hampers">Gift Hampers</a>
+          <a href="products.html?category=Customized%20Gifts">Customized Gifts</a>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <p>WhatsApp: +91 98765 43210</p>
+          <p>Email: hello@dsdecor.example</p>
+          <p>India-wide gifting support</p>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2026 DS Decor. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

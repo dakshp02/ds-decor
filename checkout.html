@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | DS Decor</title>
+
+    <meta name="description"
+        content="Secure checkout for customized gifts, bouquets, hampers and decorations from DS Decor.">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+    <!-- Checkout CSS -->
+
+    <link rel="stylesheet"
+        href="css/checkout.css">
+
+    <!-- Responsive CSS -->
+
+    <link rel="stylesheet"
+        href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+            HEADER
+    ============================ -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a href="index.html"
+                class="brand">
+
+                <span class="brand-mark">
+
+                    DS
+
+                </span>
+
+                <span>
+
+                    DS Decor
+
+                </span>
+
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="products.html">
+
+                        Products
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <!-- ===========================
+            HERO
+    ============================ -->
+    <section class="checkout-hero">
+        <div class="section">
+            <p class="eyebrow">
+                SECURE CHECKOUT
+            </p>
+            <h1>
+                Complete Your Order
+            </h1>
+            <p class="hero-copy">
+                You're just one step away from placing your order.
+                Fill in your details and review your order before proceeding.
+
+            </p>
+        </div>
+    </section>
+    <!-- ===========================
+            CHECKOUT LAYOUT
+    ============================ -->
+    <section class="section">
+        <div class="checkout-layout">
+            <!-- ======================
+                 CUSTOMER DETAILS
+            ======================= -->
+            <div class="checkout-form-box">
+                <p class="eyebrow">
+                    CUSTOMER DETAILS
+                </p>
+                <h2>
+                    Billing Information
+                </h2>
+                <form
+                    id="checkoutForm"
+                    class="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                Full Name
+                            </label>
+                            <input
+                                type="text"
+                                id="customerName"
+                                placeholder="Enter your full name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Mobile Number
+                            </label>
+                            <input
+                                type="tel"
+                                id="customerPhone"
+                                placeholder="+91 XXXXX XXXXX"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                Email Address
+                            </label>
+                            <input
+                                type="email"
+                                id="customerEmail"
+                                placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Delivery Date (Optional)
+                            </label>
+                            <input
+                                type="date"
+                                id="deliveryDate">
+                        </div>
+                    </div>
+                                        <!-- ===========================
+                            DELIVERY ADDRESS
+                    ============================ -->
+
+                    <p class="eyebrow">
+
+                        DELIVERY ADDRESS
+
+                    </p>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            House / Flat / Building
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="addressLine1"
+                            placeholder="Flat No, House No, Building Name"
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Street / Area / Landmark
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="addressLine2"
+                            placeholder="Street, Area, Landmark">
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+
+                                City
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="City"
+                                required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+
+                                State
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                placeholder="State"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+
+                                Pincode
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="pincode"
+                                placeholder="416001"
+                                required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+
+                                Delivery Instructions
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="instructions"
+                                placeholder="Optional">
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Order Notes
+
+                        </label>
+
+                        <textarea
+                            id="orderNotes"
+                            rows="5"
+                            placeholder="Any customization, message, colour preference or special request..."></textarea>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- ===========================
+                    ORDER SUMMARY
+            ============================ -->
+
+            <aside class="order-summary">
+
+                <p class="eyebrow">
+
+                    YOUR ORDER
+
+                </p>
+
+                <h2>
+
+                    Order Summary
+
+                </h2>
+
+                <div
+                    class="checkout-items"
+                    id="checkoutItems">
+
+                    <!-- Products will be loaded here by JavaScript -->
+
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row">
+
+                    <span>
+
+                        Subtotal
+
+                    </span>
+
+                    <span id="subtotal">
+
+                        ₹0
+
+                    </span>
+
+                </div>
+
+                <div class="summary-row">
+
+                    <span>
+
+                        Delivery
+
+                    </span>
+
+                    <span id="deliveryCharge">
+
+                        FREE
+
+                    </span>
+
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row total-row">
+
+                    <span>
+
+                        Total
+
+                    </span>
+
+                    <span id="grandTotal">
+
+                        ₹0
+
+                    </span>
+
+                </div>
+
+                <div class="coupon-box">
+
+                    <input
+                        type="text"
+                        id="couponCode"
+                        placeholder="Coupon Code (Coming Soon)"
+                        disabled>
+
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        disabled>
+
+                        Apply
+
+                    </button>
+
+                </div>
+                                <div class="checkout-policy">
+
+                    <label class="checkbox-container">
+
+                        <input
+                            type="checkbox"
+                            id="termsAccepted"
+                            required>
+
+                        <span class="checkmark"></span>
+
+                        I agree to the Terms & Conditions and
+                        Privacy Policy.
+
+                    </label>
+
+                </div>
+
+                <button
+                    type="submit"
+                    form="checkoutForm"
+                    class="btn btn-primary checkout-btn"
+                    id="placeOrderBtn">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    Place Order
+
+                </button>
+
+                <div class="secure-checkout">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+
+                        Your information is securely processed.
+
+                    </span>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            ORDER STEPS
+    ============================ -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+
+                WHAT HAPPENS NEXT
+
+            </p>
+
+            <h2>
+
+                After You Place Your Order
+
+            </h2>
+
+        </div>
+
+        <div class="order-steps">
+
+            <div class="order-step">
+
+                <div class="step-number">
+
+                    1
+
+                </div>
+
+                <h3>
+
+                    Order Received
+
+                </h3>
+
+                <p>
+
+                    We instantly receive your order
+                    and begin reviewing your
+                    customization details.
+
+                </p>
+
+            </div>
+
+            <div class="order-step">
+
+                <div class="step-number">
+
+                    2
+
+                </div>
+
+                <h3>
+
+                    Confirmation
+
+                </h3>
+
+                <p>
+
+                    Our team contacts you to confirm
+                    the order details and delivery
+                    information.
+
+                </p>
+
+            </div>
+
+            <div class="order-step">
+
+                <div class="step-number">
+
+                    3
+
+                </div>
+
+                <h3>
+
+                    Preparation
+
+                </h3>
+
+                <p>
+
+                    Your customized gift is carefully
+                    handcrafted using premium
+                    materials.
+
+                </p>
+
+            </div>
+
+            <div class="order-step">
+
+                <div class="step-number">
+
+                    4
+
+                </div>
+
+                <h3>
+
+                    Delivery
+
+                </h3>
+
+                <p>
+
+                    Your order is packed with care
+                    and delivered to your doorstep.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            FOOTER
+    ============================ -->
+
+    <footer class="site-footer">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="brand footer-brand">
+
+                    <span class="brand-mark">
+
+                        DS
+
+                    </span>
+
+                    <span>
+
+                        DS Decor
+
+                    </span>
+
+                </a>
+
+                <p>
+
+                    Premium handcrafted gifts,
+                    bouquets, hampers and customized
+                    decorations for every celebration.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h2>
+
+                    Quick Links
+
+                </h2>
+
+                <a href="index.html">Home</a>
+
+                <a href="products.html">Products</a>
+
+                <a href="about.html">About</a>
+
+                <a href="contact.html">Contact</a>
+                <a href="admin/login.html" class ="admin-link">Admin Login</a>
+
+            </div>
+
+            <div>
+
+                <h2>
+
+                    Categories
+
+                </h2>
+
+                <a href="#">Bouquets</a>
+
+                <a href="#">Gift Hampers</a>
+
+                <a href="#">Customized Gifts</a>
+
+                <a href="#">Decorations</a>
+
+            </div>
+
+            <div>
+
+                <h2>
+
+                    Contact
+
+                </h2>
+
+                <p>📍 Kolhapur, Maharashtra</p>
+
+                <p>📞 +91 XXXXX XXXXX</p>
+
+                <p>✉ info@dsdecor.in</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            © 2026 DS Decor. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+    <script type="module"
+        src="js/checkout.js"></script>
+
+</body>
+
+</html>
