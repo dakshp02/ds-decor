@@ -1,82 +1,278 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+
+        content="width=device-width, initial-scale=1.0">
+
     <title>About Us | DS Decor</title>
+
     <meta name="description"
+
         content="Learn more about DS Decor, our passion for handcrafted gifts, customized bouquets, premium hampers, and memorable celebrations.">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preconnect"
+
+        href="https\://fonts.googleapis.com">
+
+    <link rel="preconnect"
+
+        href="https\://fonts.gstatic.com"
+
+        crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+
+        href="https\://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+
         rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Main CSS -->
+
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- Existing CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
+        href="css/style.css">
+
     <!-- About Page CSS -->
-    <link rel="stylesheet" href="css/about.css">
+
+    <link rel="stylesheet"
+
+        href="css/about.css">
+
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+
+        href="css/responsive.css">
+
+
+
+    <style>
+
+        /* =====================================================
+           ABOUT PAGE ICONS
+        ===================================================== */
+
+        .about-icon{
+            width:32px;
+            height:32px;
+            display:block;
+            color:var(--color-pink);
+            flex-shrink:0;
+        }
+
+        /* =====================================================
+           OUR TEAM OWNER CARD
+        ===================================================== */
+
+        .about-team-side{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .about-team-side > .eyebrow{
+            align-self:flex-start;
+        }
+
+        .owner-card{
+            width:100%;
+            max-width:300px;
+            background:#fff;
+            border:1px solid var(--color-border);
+            border-radius:24px;
+            overflow:hidden;
+            box-shadow:var(--shadow-card);
+        }
+
+        .owner-image{
+            width:100%;
+            height:280px;
+            overflow:hidden;
+        }
+
+        .owner-image img{
+            width:100%;
+            height:100%;
+            display:block;
+            object-fit:cover;
+        }
+
+        .owner-card-content{
+            padding:18px 20px 20px;
+            text-align:center;
+        }
+
+        .owner-card-content h3{
+            margin:0 0 5px;
+            font-size:1.3rem;
+        }
+
+        .owner-card-content p{
+            margin:0;
+            color:var(--color-pink);
+            font-size:.75rem;
+            font-weight:700;
+            letter-spacing:1.5px;
+        }
+
+        @media(max-width:1100px){
+            .about-team-side{
+                align-items:flex-start;
+            }
+
+            .about-team-side > .eyebrow{
+                align-self:flex-start;
+            }
+
+            .owner-card{
+                max-width:360px;
+                margin:auto;
+            }
+        }
+
+        @media(max-width:768px){
+            .about-team-side{
+                align-items:center;
+            }
+
+            .about-team-side > .eyebrow{
+                align-self:center;
+            }
+
+            .owner-card{
+                max-width:320px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-    <!-- =========================
-            HEADER
-    ========================== -->
+    <!-- =====================================================
+
+                        HEADER
+
+    ====================================================== -->
 
     <header class="site-header">
+
         <nav class="navbar">
-            <a href="index.html" class="brand">
-                <span class="brand-mark">DS</span>
-                <span>DS Decor</span>
+
+            <a
+
+                href="index.html"
+
+                class="brand">
+
+                <span class="brand-mark">
+
+                    DS
+
+                </span>
+
+                <span>
+
+                    DS Decor
+
+                </span>
+
             </a>
 
             <ul class="nav-links">
+
                 <li>
-                   <a href="index.html">Home</a>
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
                 </li>
+
                 <li>
-                    <a href="products.html">Products</a>
+
+                    <a href="products.html">
+
+                        Products
+
+                    </a>
+
                 </li>
+
                 <li>
-                    <a href="about.html" aria-current="page">About</a>
+
+                    <a
+
+                        href="about.html"
+
+                        aria-current="page">
+
+                        About
+
+                    </a>
+
                 </li>
+
                 <li>
-                    <a href="contact.html">Contact</a>
+
+                    <a href="contact.html">
+
+                        Contact
+
+                    </a>
+
                 </li>
+
             </ul>
+
         </nav>
+
     </header>
 
-    <!-- =========================
-            HERO SECTION
-    ========================== -->
+    <!-- =====================================================
+
+                        HERO
+
+    ====================================================== -->
 
     <section class="about-hero">
 
         <div class="section">
 
             <p class="eyebrow">
+
                 OUR STORY
+
             </p>
 
             <h1>
-                Creating Beautiful Gifts That Make Every Celebration Memorable.
+
+                Creating Beautiful Gifts That Make
+
+                Every Celebration Memorable.
+
             </h1>
 
             <p class="hero-copy">
 
                 At DS Decor, we believe every gift carries an emotion.
+
                 From handcrafted bouquets and premium gift hampers to
+
                 customized surprises, every creation is made with love,
+
                 creativity, and attention to detail.
 
             </p>
@@ -85,82 +281,131 @@
 
     </section>
 
-    <!-- =========================
-            OUR STORY
-    ========================== -->
+    <!-- =====================================================
+                OUR TEAM + OUR STORY
+===================================================== -->
 
-    <section class="section">
+<section class="section">
 
-        <div class="about-story">
+    <div class="about-story">
 
-            <div class="about-story-image">
+        <!-- =================================================
+                        OUR TEAM
+        ================================================== -->
 
-                <img src="assets/images/about/about.jpg"
-                    alt="DS Decor Team">
+        <div class="about-team-side">
 
-            </div>
+            <p class="eyebrow">
+                OUR TEAM
+            </p>
 
-            <div class="about-story-content">
+            <article class="owner-card">
 
-                <p class="eyebrow">
-                    WHO WE ARE
-                </p>
+                <div class="owner-image">
 
-                <h2>
+                    <img
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85"
+                        alt="Dhruva Nikam">
 
-                    More Than Just Gifts
+                </div>
 
-                </h2>
+                <div class="owner-card-content">
 
-                <p>
+                    <h3>
+                        Dhruva Nikam
+                    </h3>
 
-                   Welcome to D's DecoArt, where creativity meets craftsmanship. We specialize in handcrafted, 
-                   customized gifts, hampers, home décor, bouquets, and unique art pieces designed to make every 
-                   occasion memorable. Every product is thoughtfully created with attention to detail, ensuring a 
-                   unique and high-quality experience for our customers.
+                    <p>
+                        OWNER
+                    </p>
 
-                </p>
+                </div>
 
-                <p>
-
-                  Whether you're celebrating a birthday, anniversary, wedding, baby shower, festival, or any special 
-                  moment, we bring your ideas to life through personalized handmade creations. Our mission is to 
-                  deliver creativity, quality, and happiness with every order, creating meaningful gifts that leave a 
-                  lasting impression and make every celebration truly unforgettable.
-
-                </p>
-
-                <p>
-
-                    Quality craftsmanship, premium materials, and customer
-                    satisfaction remain at the heart of everything we do.
-
-                </p>
-
-            </div>
+            </article>
 
         </div>
 
-    </section>
-        <!-- =========================
-            MISSION & VISION
-    ========================== -->
+
+        <!-- =================================================
+                        OUR STORY
+        ================================================== -->
+
+        <div class="about-story-content">
+
+            <p class="eyebrow">
+                WHO WE ARE
+            </p>
+
+            <h2>
+                More Than Just Gifts
+            </h2>
+
+            <p>
+                Welcome to D's DecoArt, where creativity meets
+                craftsmanship. We specialize in handcrafted,
+                customized gifts, hampers, home décor, bouquets,
+                and unique art pieces designed to make every
+                occasion memorable.
+            </p>
+
+            <p>
+                Every product is thoughtfully created with
+                attention to detail, ensuring a unique and
+                high-quality experience for our customers.
+            </p>
+
+            <p>
+                Whether you're celebrating a birthday,
+                anniversary, wedding, baby shower, festival,
+                or any special moment, we bring your ideas to
+                life through personalized handmade creations.
+            </p>
+
+            <p>
+                Our mission is to deliver creativity, quality,
+                and happiness with every order, creating
+                meaningful gifts that leave a lasting impression
+                and make every celebration truly unforgettable.
+            </p>
+
+            <p>
+                Quality craftsmanship, premium materials,
+                and customer satisfaction remain at the heart
+                of everything we do.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =====================================================
+
+                    MISSION & VISION
+
+    ====================================================== -->
 
     <section class="section about-mission-section">
 
         <div class="section-heading">
 
             <p class="eyebrow">
+
                 OUR PURPOSE
+
             </p>
 
             <h2>
+
                 Driven By Creativity & Customer Happiness
+
             </h2>
 
             <p>
 
                 Every order is more than just a product—it is a memory,
+
                 carefully designed to make your special moments unforgettable.
 
             </p>
@@ -169,46 +414,144 @@
 
         <div class="mission-grid">
 
+            <!-- MISSION -->
+
             <article class="mission-card">
 
                 <div class="mission-icon">
 
-                    <i class="fa-solid fa-bullseye"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <circle
+
+                            cx="12"
+
+                            cy="12"
+
+                            r="9">
+
+                        </circle>
+
+                        <circle
+
+                            cx="12"
+
+                            cy="12"
+
+                            r="4">
+
+                        </circle>
+
+                        <path
+
+                            d="M12 3v3">
+
+                        </path>
+
+                        <path
+
+                            d="M21 12h-3">
+
+                        </path>
+
+                    </svg>
 
                 </div>
 
                 <h3>
+
                     Our Mission
+
                 </h3>
 
                 <p>
 
                     To provide beautifully handcrafted gifts,
+
                     customized bouquets, hampers and decorations
+
                     that create lasting memories while delivering
+
                     exceptional quality and customer satisfaction.
 
                 </p>
 
             </article>
 
+            <!-- VISION -->
+
             <article class="mission-card">
 
                 <div class="mission-icon">
 
-                    <i class="fa-solid fa-eye"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <path
+
+                            d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z">
+
+                        </path>
+
+                        <circle
+
+                            cx="12"
+
+                            cy="12"
+
+                            r="2.8">
+
+                        </circle>
+
+                    </svg>
 
                 </div>
 
                 <h3>
+
                     Our Vision
+
                 </h3>
 
                 <p>
 
                     To become one of India's most trusted brands
+
                     for customized gifting by combining creativity,
+
                     quality craftsmanship and outstanding customer
+
                     experiences.
 
                 </p>
@@ -219,25 +562,32 @@
 
     </section>
 
-    <!-- =========================
-            WHY CHOOSE US
-    ========================== -->
+    <!-- =====================================================
+
+                    WHY CHOOSE US
+
+    ====================================================== -->
 
     <section class="section">
 
         <div class="section-heading">
 
             <p class="eyebrow">
+
                 WHY DS DECOR
+
             </p>
 
             <h2>
+
                 What Makes Us Different
+
             </h2>
 
             <p>
 
                 Every product is created with attention to detail,
+
                 premium materials and a passion for making people smile.
 
             </p>
@@ -246,11 +596,61 @@
 
         <div class="about-features-grid">
 
+            <!-- PREMIUM GIFTS -->
+
             <article class="about-feature-card">
 
                 <div class="feature-icon">
 
-                    <i class="fa-solid fa-gift"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <path
+
+                            d="M20 12v8H4v-8">
+
+                        </path>
+
+                        <path
+
+                            d="M2 7h20v5H2z">
+
+                        </path>
+
+                        <path
+
+                            d="M12 7v13">
+
+                        </path>
+
+                        <path
+
+                            d="M12 7H7.5a2.5 2.5 0 1 1 0-5C10 2 12 7 12 7Z">
+
+                        </path>
+
+                        <path
+
+                            d="M12 7h4.5a2.5 2.5 0 1 0 0-5C14 2 12 7 12 7Z">
+
+                        </path>
+
+                    </svg>
 
                 </div>
 
@@ -263,18 +663,46 @@
                 <p>
 
                     Beautiful handcrafted bouquets,
+
                     hampers and decorative gifts made
+
                     with premium materials.
 
                 </p>
 
             </article>
 
+            <!-- HANDMADE -->
+
             <article class="about-feature-card">
 
                 <div class="feature-icon">
 
-                    <i class="fa-solid fa-heart"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <path
+
+                            d="M20.8 8.6c0 5.4-8.8 10.4-8.8 10.4S3.2 14 3.2 8.6A4.6 4.6 0 0 1 12 6.4a4.6 4.6 0 0 1 8.8 2.2Z">
+
+                        </path>
+
+                    </svg>
 
                 </div>
 
@@ -287,18 +715,58 @@
                 <p>
 
                     Every order receives personal
+
                     attention to ensure uniqueness
+
                     and excellent finishing.
 
                 </p>
 
             </article>
 
+            <!-- CUSTOMIZABLE -->
+
             <article class="about-feature-card">
 
                 <div class="feature-icon">
 
-                    <i class="fa-solid fa-palette"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <path
+
+                            d="M12 20h9">
+
+                        </path>
+
+                        <path
+
+                            d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z">
+
+                        </path>
+
+                        <path
+
+                            d="m14 6 4 4">
+
+                        </path>
+
+                    </svg>
 
                 </div>
 
@@ -311,18 +779,72 @@
                 <p>
 
                     Personalize gifts with names,
+
                     themes, colors and messages
+
                     according to your occasion.
 
                 </p>
 
             </article>
 
+            <!-- DELIVERY -->
+
             <article class="about-feature-card">
 
                 <div class="feature-icon">
 
-                    <i class="fa-solid fa-truck-fast"></i>
+                    <svg
+
+                        class="about-icon"
+
+                        viewBox="0 0 24 24"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-width="1.8"
+
+                        stroke-linecap="round"
+
+                        stroke-linejoin="round"
+
+                        aria-hidden="true">
+
+                        <path
+
+                            d="M3 5h11v11H3z">
+
+                        </path>
+
+                        <path
+
+                            d="M14 9h4l3 3v4h-7z">
+
+                        </path>
+
+                        <circle
+
+                            cx="7"
+
+                            cy="18"
+
+                            r="2">
+
+                        </circle>
+
+                        <circle
+
+                            cx="18"
+
+                            cy="18"
+
+                            r="2">
+
+                        </circle>
+
+                    </svg>
 
                 </div>
 
@@ -335,7 +857,9 @@
                 <p>
 
                     Timely delivery with careful
+
                     packaging to ensure every gift
+
                     reaches safely.
 
                 </p>
@@ -346,9 +870,11 @@
 
     </section>
 
-    <!-- =========================
-            OUR PROCESS
-    ========================== -->
+    <!-- =====================================================
+
+                    OUR PROCESS
+
+    ====================================================== -->
 
     <section class="section">
 
@@ -375,12 +901,15 @@
                 <span>01</span>
 
                 <h3>
+
                     Choose Your Product
+
                 </h3>
 
                 <p>
 
                     Browse our premium collection
+
                     and select your favorite design.
 
                 </p>
@@ -399,8 +928,8 @@
 
                 <p>
 
-                    Add names,
-                    messages,
+                    Add names, messages,
+
                     photos or special requests.
 
                 </p>
@@ -420,7 +949,9 @@
                 <p>
 
                     Our team prepares your
+
                     order carefully using
+
                     premium materials.
 
                 </p>
@@ -440,6 +971,7 @@
                 <p>
 
                     Beautifully packed and
+
                     delivered to your loved ones.
 
                 </p>
@@ -449,9 +981,12 @@
         </div>
 
     </section>
-        <!-- =========================
-            COMPANY STATS
-    ========================== -->
+
+    <!-- =====================================================
+
+                    COMPANY STATS
+
+    ====================================================== -->
 
     <section class="section about-stats-section">
 
@@ -459,33 +994,65 @@
 
             <div class="stat-card">
 
-                <h2>500+</h2>
+                <h2>
 
-                <p>Happy Customers</p>
+                    500+
 
-            </div>
+                </h2>
 
-            <div class="stat-card">
+                <p>
 
-                <h2>1000+</h2>
+                    Happy Customers
 
-                <p>Orders Delivered</p>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h2>100+</h2>
-
-                <p>Unique Gift Designs</p>
+                </p>
 
             </div>
 
             <div class="stat-card">
 
-                <h2>5★</h2>
+                <h2>
 
-                <p>Customer Satisfaction</p>
+                    1000+
+
+                </h2>
+
+                <p>
+
+                    Orders Delivered
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>
+
+                    100+
+
+                </h2>
+
+                <p>
+
+                    Unique Gift Designs
+
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>
+
+                    5★
+
+                </h2>
+
+                <p>
+
+                    Customer Satisfaction
+
+                </p>
 
             </div>
 
@@ -493,9 +1060,13 @@
 
     </section>
 
-    <!-- =========================
-            CUSTOMER PROMISE
-    ========================== -->
+    
+
+    <!-- =====================================================
+
+                    CUSTOMER PROMISE
+
+    ====================================================== -->
 
     <section class="section">
 
@@ -520,11 +1091,15 @@
                     We don't simply create products.
 
                     We create memories that stay with
+
                     people forever.
 
                     Every order is checked carefully
+
                     before delivery to ensure premium
+
                     quality and complete customer
+
                     satisfaction.
 
                 </p>
@@ -533,7 +1108,10 @@
 
             <div class="promise-image">
 
-                <img src="assets/images/about/promise.jpg"
+                <img
+
+                    src="assets/images/about/promise.jpg"
+
                     alt="Customer Promise">
 
             </div>
@@ -542,9 +1120,11 @@
 
     </section>
 
-    <!-- =========================
-            CTA
-    ========================== -->
+    <!-- =====================================================
+
+                            CTA
+
+    ====================================================== -->
 
     <section class="cta-section">
 
@@ -559,6 +1139,7 @@
             <h2>
 
                 Find The Perfect Gift
+
                 For Every Celebration
 
             </h2>
@@ -566,21 +1147,29 @@
             <p class="hero-copy">
 
                 Explore handcrafted bouquets,
+
                 premium hampers and customized
+
                 gifts designed with love.
 
             </p>
 
             <div class="hero-actions">
 
-                <a href="products.html"
+                <a
+
+                    href="products.html"
+
                     class="btn btn-primary">
 
                     Shop Now
 
                 </a>
 
-                <a href="contact.html"
+                <a
+
+                    href="contact.html"
+
                     class="btn btn-light">
 
                     Contact Us
@@ -593,9 +1182,11 @@
 
     </section>
 
-    <!-- =========================
-            FOOTER
-    ========================== -->
+    <!-- =====================================================
+
+                            FOOTER
+
+    ====================================================== -->
 
     <footer class="site-footer">
 
@@ -603,7 +1194,10 @@
 
             <div>
 
-                <a href="index.html"
+                <a
+
+                    href="index.html"
+
                     class="brand footer-brand">
 
                     <span class="brand-mark">
@@ -623,8 +1217,11 @@
                 <p>
 
                     Premium customized gifts,
+
                     bouquets, hampers and
+
                     decorations crafted for
+
                     every special occasion.
 
                 </p>
@@ -662,7 +1259,16 @@
                     Contact
 
                 </a>
-                <a href="admin/login.html" class ="admin-link">Admin Login</a>
+
+                <a
+
+                    href="admin/login.html"
+
+                    class="admin-link">
+
+                    Admin Login
+
+                </a>
 
             </div>
 
@@ -703,23 +1309,43 @@
             <div>
 
                 <h2>
+
                     Contact
+
                 </h2>
+
                 <p>
+
                     📍 Kolhapur, Maharashtra
+
                 </p>
+
                 <p>
+
                     📞 +91 93094 54344
+
                 </p>
+
                 <p>
+
                     ✉ info@dsdecor.in
+
                 </p>
+
             </div>
+
         </div>
+
         <div class="footer-bottom">
+
             © 2026 DS Decor.
+
             All Rights Reserved.
+
         </div>
+
     </footer>
+
 </body>
+
 </html>

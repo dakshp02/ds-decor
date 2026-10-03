@@ -79,16 +79,58 @@
 
 }
 
-.about-story-image img{
+/* =====================================================
+   OWNER CARD
+===================================================== */
 
+.about-story-image.owner-card{
+    position:relative;
     width:100%;
+    max-width:420px;
+    margin:auto;
+    background:#fff;
+    border:1px solid var(--color-border);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+    z-index:1;
+}
 
-    border-radius:26px;
+.about-story-image.owner-card::after{
+    content:"";
+    width:130px;
+    height:130px;
+    border-radius:24px;
+    background:rgba(233,30,99,.08);
+    position:absolute;
+    right:-20px;
+    bottom:70px;
+    z-index:-1;
+}
 
-    box-shadow:0 18px 45px rgba(0,0,0,.12);
+.owner-card img{
+    display:block;
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
 
-    transition:.35s;
+.owner-card-content{
+    padding:20px 22px 22px;
+    text-align:center;
+}
 
+.owner-card-content h3{
+    margin:0 0 5px;
+    font-size:1.35rem;
+}
+
+.owner-card-content p{
+    margin:0;
+    color:var(--color-pink);
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:1.5px;
 }
 
 .about-story-image img:hover{
@@ -690,5 +732,94 @@ font-size:2rem;
 font-size:2.2rem;
 
 }
+
+}
+/* =====================================================
+   OUR TEAM
+===================================================== */
+
+.about-team-side{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.about-team-side > .eyebrow{
+    align-self:flex-start;
+}
+
+.owner-card{
+    width:100%;
+    max-width:300px;
+    background:#fff;
+    border:1px solid var(--color-border);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow-card);
+}
+
+.owner-image{
+    width:100%;
+    height:280px;
+    overflow:hidden;
+}
+
+.owner-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+
+.owner-card-content{
+    padding:18px 20px 20px;
+    text-align:center;
+}
+
+.owner-card-content h3{
+    margin:0 0 5px;
+    font-size:1.3rem;
+}
+
+.owner-card-content p{
+    margin:0;
+    color:var(--color-pink);
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:1.5px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .about-team-side{
+        align-items:flex-start;
+    }
+
+    .owner-card{
+        max-width:360px;
+        margin:auto;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .about-team-side{
+        align-items:center;
+    }
+
+    .about-team-side > .eyebrow{
+        align-self:center;
+    }
+
+    .owner-card{
+        max-width:320px;
+    }
 
 }

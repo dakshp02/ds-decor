@@ -47,11 +47,13 @@
 
 </head>
 
+
 <body>
 
-    <!-- ===========================
-            HEADER
-    ============================ -->
+
+    <!-- =====================================================
+                    HEADER
+    ====================================================== -->
 
     <header class="site-header">
 
@@ -61,59 +63,40 @@
                 class="brand">
 
                 <span class="brand-mark">
-
                     DS
-
                 </span>
 
                 <span>
-
                     DS Decor
-
                 </span>
 
             </a>
 
+
             <ul class="nav-links">
 
                 <li>
-
                     <a href="index.html">
-
                         Home
-
                     </a>
-
                 </li>
 
                 <li>
-
                     <a href="products.html">
-
                         Products
-
                     </a>
-
                 </li>
 
                 <li>
-
                     <a href="about.html">
-
                         About
-
                     </a>
-
                 </li>
 
                 <li>
-
                     <a href="contact.html">
-
                         Contact
-
                     </a>
-
                 </li>
 
             </ul>
@@ -121,99 +104,147 @@
         </nav>
 
     </header>
-    <!-- ===========================
-            HERO
-    ============================ -->
+
+
+    <!-- =====================================================
+                    HERO
+    ====================================================== -->
+
     <section class="checkout-hero">
+
         <div class="section">
+
             <p class="eyebrow">
                 SECURE CHECKOUT
             </p>
+
             <h1>
                 Complete Your Order
             </h1>
+
             <p class="hero-copy">
+
                 You're just one step away from placing your order.
                 Fill in your details and review your order before proceeding.
 
             </p>
+
         </div>
+
     </section>
-    <!-- ===========================
-            CHECKOUT LAYOUT
-    ============================ -->
+
+
+    <!-- =====================================================
+                    CHECKOUT LAYOUT
+    ====================================================== -->
+
     <section class="section">
+
         <div class="checkout-layout">
-            <!-- ======================
-                 CUSTOMER DETAILS
-            ======================= -->
+
+
+            <!-- =================================================
+                        CUSTOMER DETAILS
+            ================================================== -->
+
             <div class="checkout-form-box">
+
                 <p class="eyebrow">
                     CUSTOMER DETAILS
                 </p>
+
                 <h2>
                     Billing Information
                 </h2>
+
+
                 <form
                     id="checkoutForm"
                     class="checkout-form">
+
+
+                    <!-- NAME + PHONE -->
+
                     <div class="form-row">
+
                         <div class="form-group">
-                            <label>
+
+                            <label for="customerName">
                                 Full Name
                             </label>
+
                             <input
                                 type="text"
                                 id="customerName"
                                 placeholder="Enter your full name"
                                 required>
+
                         </div>
+
+
                         <div class="form-group">
-                            <label>
+
+                            <label for="customerPhone">
                                 Mobile Number
                             </label>
+
                             <input
                                 type="tel"
                                 id="customerPhone"
                                 placeholder="+91 XXXXX XXXXX"
                                 required>
+
                         </div>
+
                     </div>
+
+
+                    <!-- EMAIL + DELIVERY DATE -->
+
                     <div class="form-row">
+
                         <div class="form-group">
-                            <label>
+
+                            <label for="customerEmail">
                                 Email Address
                             </label>
+
                             <input
                                 type="email"
                                 id="customerEmail"
                                 placeholder="example@gmail.com">
+
                         </div>
+
+
                         <div class="form-group">
-                            <label>
+
+                            <label for="deliveryDate">
                                 Delivery Date (Optional)
                             </label>
+
                             <input
                                 type="date"
                                 id="deliveryDate">
+
                         </div>
+
                     </div>
-                                        <!-- ===========================
-                            DELIVERY ADDRESS
-                    ============================ -->
+
+
+                    <!-- =================================================
+                                DELIVERY ADDRESS
+                    ================================================== -->
 
                     <p class="eyebrow">
-
                         DELIVERY ADDRESS
-
                     </p>
+
 
                     <div class="form-group">
 
-                        <label>
-
+                        <label for="addressLine1">
                             House / Flat / Building
-
                         </label>
 
                         <input
@@ -224,12 +255,11 @@
 
                     </div>
 
+
                     <div class="form-group">
 
-                        <label>
-
+                        <label for="addressLine2">
                             Street / Area / Landmark
-
                         </label>
 
                         <input
@@ -239,14 +269,15 @@
 
                     </div>
 
+
+                    <!-- CITY + STATE -->
+
                     <div class="form-row">
 
                         <div class="form-group">
 
-                            <label>
-
+                            <label for="city">
                                 City
-
                             </label>
 
                             <input
@@ -257,12 +288,11 @@
 
                         </div>
 
+
                         <div class="form-group">
 
-                            <label>
-
+                            <label for="state">
                                 State
-
                             </label>
 
                             <input
@@ -275,30 +305,32 @@
 
                     </div>
 
+
+                    <!-- PINCODE + INSTRUCTIONS -->
+
                     <div class="form-row">
 
                         <div class="form-group">
 
-                            <label>
-
+                            <label for="pincode">
                                 Pincode
-
                             </label>
 
                             <input
-                                type="number"
+                                type="text"
                                 id="pincode"
+                                inputmode="numeric"
+                                maxlength="6"
                                 placeholder="416001"
                                 required>
 
                         </div>
 
+
                         <div class="form-group">
 
-                            <label>
-
+                            <label for="instructions">
                                 Delivery Instructions
-
                             </label>
 
                             <input
@@ -310,12 +342,13 @@
 
                     </div>
 
+
+                    <!-- ORDER NOTES -->
+
                     <div class="form-group">
 
-                        <label>
-
+                        <label for="orderNotes">
                             Order Notes
-
                         </label>
 
                         <textarea
@@ -325,123 +358,179 @@
 
                     </div>
 
+
                 </form>
 
             </div>
 
-            <!-- ===========================
-                    ORDER SUMMARY
-            ============================ -->
+
+            <!-- =================================================
+                        ORDER SUMMARY
+            ================================================== -->
 
             <aside class="order-summary">
 
+
                 <p class="eyebrow">
-
                     YOUR ORDER
-
                 </p>
 
+
                 <h2>
-
                     Order Summary
-
                 </h2>
+
+
+                <!-- PRODUCTS -->
 
                 <div
                     class="checkout-items"
                     id="checkoutItems">
 
-                    <!-- Products will be loaded here by JavaScript -->
+                    <!-- Product loaded by JavaScript -->
 
                 </div>
 
+
                 <div class="summary-divider"></div>
+
+
+                <!-- SUBTOTAL -->
 
                 <div class="summary-row">
 
                     <span>
-
                         Subtotal
-
                     </span>
 
                     <span id="subtotal">
-
                         ₹0
-
                     </span>
 
                 </div>
+
+
+                <!-- DELIVERY -->
 
                 <div class="summary-row">
 
                     <span>
-
                         Delivery
-
                     </span>
 
                     <span id="deliveryCharge">
-
                         FREE
-
                     </span>
 
                 </div>
 
+
+                <!-- COUPON DISCOUNT -->
+
+                <div
+                    class="summary-row"
+                    id="discountRow"
+                    style="display:none;">
+
+                    <span>
+                        Coupon Discount
+                    </span>
+
+                    <span id="discountAmount">
+                        -₹0
+                    </span>
+
+                </div>
+
+
                 <div class="summary-divider"></div>
+
+
+                <!-- TOTAL -->
 
                 <div class="summary-row total-row">
 
                     <span>
-
                         Total
-
                     </span>
 
                     <span id="grandTotal">
-
                         ₹0
-
                     </span>
 
                 </div>
+
+
+                <!-- =================================================
+                            COUPON
+                ================================================== -->
 
                 <div class="coupon-box">
 
                     <input
                         type="text"
                         id="couponCode"
-                        placeholder="Coupon Code (Coming Soon)"
-                        disabled>
+                        placeholder="Enter coupon code"
+                        autocomplete="off">
 
                     <button
                         type="button"
                         class="btn btn-light"
-                        disabled>
+                        id="applyCouponBtn">
 
                         Apply
 
                     </button>
 
                 </div>
-                                <div class="checkout-policy">
+
+
+                <p
+                    id="couponMessage"
+                    class="coupon-message"
+                    aria-live="polite">
+                </p>
+
+
+                <!-- =================================================
+                            TERMS
+                ================================================== -->
+
+                <div class="checkout-policy">
 
                     <label class="checkbox-container">
 
                         <input
                             type="checkbox"
                             id="termsAccepted"
+                            form="checkoutForm"
                             required>
 
                         <span class="checkmark"></span>
 
-                        I agree to the Terms & Conditions and
-                        Privacy Policy.
+                        <span class="policy-text">
+
+                            I agree to the
+
+                            <a
+                                href="terms.html"
+                                target="_blank"
+                                rel="noopener">
+
+                                Terms &amp; Conditions
+
+                            </a>.
+
+                        </span>
 
                     </label>
 
                 </div>
+
+
+                <!-- =================================================
+                            PLACE ORDER
+                ================================================== -->
 
                 <button
                     type="submit"
@@ -455,6 +544,7 @@
 
                 </button>
 
+
                 <div class="secure-checkout">
 
                     <i class="fa-solid fa-shield-halved"></i>
@@ -467,48 +557,44 @@
 
                 </div>
 
+
             </aside>
 
         </div>
 
     </section>
 
-    <!-- ===========================
-            ORDER STEPS
-    ============================ -->
+
+    <!-- =====================================================
+                    ORDER STEPS
+    ====================================================== -->
 
     <section class="section">
 
         <div class="section-heading">
 
             <p class="eyebrow">
-
                 WHAT HAPPENS NEXT
-
             </p>
 
             <h2>
-
                 After You Place Your Order
-
             </h2>
 
         </div>
 
+
         <div class="order-steps">
+
 
             <div class="order-step">
 
                 <div class="step-number">
-
                     1
-
                 </div>
 
                 <h3>
-
                     Order Received
-
                 </h3>
 
                 <p>
@@ -521,18 +607,15 @@
 
             </div>
 
+
             <div class="order-step">
 
                 <div class="step-number">
-
                     2
-
                 </div>
 
                 <h3>
-
                     Confirmation
-
                 </h3>
 
                 <p>
@@ -545,18 +628,15 @@
 
             </div>
 
+
             <div class="order-step">
 
                 <div class="step-number">
-
                     3
-
                 </div>
 
                 <h3>
-
                     Preparation
-
                 </h3>
 
                 <p>
@@ -569,18 +649,15 @@
 
             </div>
 
+
             <div class="order-step">
 
                 <div class="step-number">
-
                     4
-
                 </div>
 
                 <h3>
-
                     Delivery
-
                 </h3>
 
                 <p>
@@ -592,17 +669,20 @@
 
             </div>
 
+
         </div>
 
     </section>
 
-    <!-- ===========================
-            FOOTER
-    ============================ -->
+
+    <!-- =====================================================
+                    FOOTER
+    ====================================================== -->
 
     <footer class="site-footer">
 
         <div class="footer-grid">
+
 
             <div>
 
@@ -611,18 +691,15 @@
                     class="brand footer-brand">
 
                     <span class="brand-mark">
-
                         DS
-
                     </span>
 
                     <span>
-
                         DS Decor
-
                     </span>
 
                 </a>
+
 
                 <p>
 
@@ -634,60 +711,88 @@
 
             </div>
 
+
             <div>
 
                 <h2>
-
                     Quick Links
-
                 </h2>
 
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <a href="products.html">Products</a>
+                <a href="products.html">
+                    Products
+                </a>
 
-                <a href="about.html">About</a>
+                <a href="about.html">
+                    About
+                </a>
 
-                <a href="contact.html">Contact</a>
-                <a href="admin/login.html" class ="admin-link">Admin Login</a>
-
-            </div>
-
-            <div>
-
-                <h2>
-
-                    Categories
-
-                </h2>
-
-                <a href="#">Bouquets</a>
-
-                <a href="#">Gift Hampers</a>
-
-                <a href="#">Customized Gifts</a>
-
-                <a href="#">Decorations</a>
-
-            </div>
-
-            <div>
-
-                <h2>
-
+                <a href="contact.html">
                     Contact
+                </a>
 
-                </h2>
+                <a
+                    href="admin/login.html"
+                    class="admin-link">
 
-                <p>📍 Kolhapur, Maharashtra</p>
+                    Admin Login
 
-                <p>📞 +91 XXXXX XXXXX</p>
-
-                <p>✉ info@dsdecor.in</p>
+                </a>
 
             </div>
+
+
+            <div>
+
+                <h2>
+                    Categories
+                </h2>
+
+                <a href="#">
+                    Bouquets
+                </a>
+
+                <a href="#">
+                    Gift Hampers
+                </a>
+
+                <a href="#">
+                    Customized Gifts
+                </a>
+
+                <a href="#">
+                    Decorations
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    Contact
+                </h2>
+
+                <p>
+                    📍 Kolhapur, Maharashtra
+                </p>
+
+                <p>
+                    📞 +91 XXXXX XXXXX
+                </p>
+
+                <p>
+                    ✉ info@dsdecor.in
+                </p>
+
+            </div>
+
 
         </div>
+
 
         <div class="footer-bottom">
 
@@ -697,8 +802,12 @@
 
     </footer>
 
-    <script type="module"
-        src="js/checkout.js"></script>
+
+    <script
+        type="module"
+        src="js/checkout.js">
+    </script>
+
 
 </body>
 

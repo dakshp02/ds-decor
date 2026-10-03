@@ -1,387 +1,1341 @@
 import {
-  doc,
-  getDoc,
-  collection,
-  addDoc,
-  serverTimestamp
+    doc,
+    getDoc,
+    collection,
+    getDocs,
+    addDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 import { db } from "./firebase.js";
 
-const checkoutItems = document.querySelector("#checkoutItems");
-const subtotalElement = document.querySelector("#subtotal");
-const totalElement = document.querySelector("#grandTotal");
+
+/* =====================================================
+                DOM ELEMENTS
+===================================================== */
+
+const checkoutItems =
+    document.querySelector("#checkoutItems");
+
+const subtotalElement =
+    document.querySelector("#subtotal");
+
+const totalElement =
+    document.querySelector("#grandTotal");
+
+const deliveryChargeElement =
+    document.querySelector("#deliveryCharge");
+
+const discountRow =
+    document.querySelector("#discountRow");
+
+const discountAmountElement =
+    document.querySelector("#discountAmount");
+
+const couponCodeInput =
+    document.querySelector("#couponCode");
+
+const applyCouponButton =
+    document.querySelector("#applyCouponBtn");
+
+const couponMessage =
+    document.querySelector("#couponMessage");
+
+const checkoutForm =
+    document.querySelector("#checkoutForm");
+
+const placeOrderButton =
+    document.querySelector("#placeOrderBtn");
+
+const termsAccepted =
+    document.querySelector("#termsAccepted");
+
+
+/* =====================================================
+                STATE
+===================================================== */
 
 let currentProduct = null;
 
+let subtotal = 0;
+
+let appliedCoupon = null;
+
+let discountAmount = 0;
+
+
+/* =====================================================
+                INITIALIZE CHECKOUT
+===================================================== */
+
 initializeCheckout();
+
 
 async function initializeCheckout() {
 
-  const productId = getProductIdFromUrl();
+    const productId =
+        getProductIdFromUrl();
 
-  if (!productId) {
 
-    renderEmptyState(
-      "No product selected.",
-      "Please go back and choose a product."
-    );
+    if (!productId) {
 
-    return;
+        renderEmptyState(
+            "No product selected.",
+            "Please go back and choose a product."
+        );
 
-  }
-
-  try {
-
-    currentProduct = await getProduct(productId);
-    console.log(productId);
-    console.log(currentProduct);
-
-    if (!currentProduct) {
-
-      renderEmptyState(
-        "Product not found.",
-        "The requested product does not exist."
-      );
-
-      return;
+        return;
 
     }
 
-    renderCheckoutProduct(currentProduct);
-    
 
-  } catch (error) {
+    try {
 
-    console.error(error);
+        currentProduct =
+            await getProduct(
+                productId
+            );
 
-    renderEmptyState(
-      "Something went wrong.",
-      "Unable to load product."
-    );
 
-  }
+        if (!currentProduct) {
+
+            renderEmptyState(
+                "Product not found.",
+                "The requested product does not exist."
+            );
+
+            return;
+
+        }
+
+
+        renderCheckoutProduct(
+            currentProduct
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to initialize checkout:",
+            error
+        );
+
+
+        renderEmptyState(
+            "Something went wrong.",
+            "Unable to load product."
+        );
+
+    }
 
 }
+
+
+/* =====================================================
+                GET PRODUCT ID
+===================================================== */
 
 function getProductIdFromUrl() {
 
-  const params = new URLSearchParams(window.location.search);
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-  return params.get("id");
 
-}
-
-async function getProduct(productId) {
-
-  const reference = doc(db, "products", productId);
-
-  const snapshot = await getDoc(reference);
-
-  if (!snapshot.exists()) {
-
-    return null;
-
-  }
-console.log(snapshot.data());
-  return {
-
-    productId: snapshot.id,
-
-    ...snapshot.data()
-
-  };
+    return params.get(
+        "id"
+    );
 
 }
 
-function renderCheckoutProduct(product) {
-   console.log("Rendering:", product);
 
-  console.log(product);
+/* =====================================================
+                GET PRODUCT
+===================================================== */
 
-console.log(product.price);
+async function getProduct(
+    productId
+) {
 
-const price = Number(product.price || 0);
+    const reference =
+        doc(
+            db,
+            "products",
+            productId
+        );
 
-console.log(price);
 
-  checkoutItems.innerHTML = `
+    const snapshot =
+        await getDoc(
+            reference
+        );
 
-    <div class="checkout-item">
 
-      <img
-        src="${product.image}"
-        alt="${escapeHtml(product.name)}">
+    if (!snapshot.exists()) {
 
-      <div class="checkout-item-info">
+        return null;
 
-        <h3>${escapeHtml(product.name)}</h3>
+    }
 
-        <p>${escapeHtml(product.category || "Gift")}</p>
 
-      </div>
+    return {
 
-      <div class="checkout-price">
+        productId:
+            snapshot.id,
 
-        ₹${price.toLocaleString("en-IN")}
+        ...snapshot.data()
 
-      </div>
-
-    </div>
-
-  `;
-
-  subtotalElement.textContent = `₹${price.toLocaleString("en-IN")}`;
-
-  totalElement.textContent = `₹${price.toLocaleString("en-IN")}`;
+    };
 
 }
 
-function renderEmptyState(title, message) {
 
-  checkoutItems.innerHTML = `
+/* =====================================================
+                RENDER PRODUCT
+===================================================== */
 
-    <div class="empty-cart">
+function renderCheckoutProduct(
+    product
+) {
 
-      <i class="fa-solid fa-bag-shopping"></i>
+    const price =
+        Number(
+            product.price || 0
+        );
 
-      <h2>${escapeHtml(title)}</h2>
 
-      <p>${escapeHtml(message)}</p>
+    subtotal =
+        price;
 
-      <a
-        href="products.html"
-        class="btn btn-primary">
 
-        Browse Products
+    checkoutItems.innerHTML = `
 
-      </a>
+        <div class="checkout-item">
 
-    </div>
+            <img
+                src="${escapeHtml(product.image || "")}"
+                alt="${escapeHtml(product.name)}">
 
-  `;
+            <div class="checkout-item-info">
+
+                <h3>
+                    ${escapeHtml(product.name)}
+                </h3>
+
+                <p>
+                    ${escapeHtml(
+                        product.category || "Gift"
+                    )}
+                </p>
+
+            </div>
+
+            <div class="checkout-price">
+
+                ₹${price.toLocaleString(
+                    "en-IN"
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    updateOrderSummary();
 
 }
 
-function escapeHtml(value) {
 
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+/* =====================================================
+                UPDATE ORDER SUMMARY
+===================================================== */
+
+function updateOrderSummary() {
+
+    const finalTotal =
+        Math.max(
+            0,
+            subtotal - discountAmount
+        );
+
+
+    subtotalElement.textContent =
+        formatCurrency(
+            subtotal
+        );
+
+
+    discountAmountElement.textContent =
+        `-${formatCurrency(
+            discountAmount
+        )}`;
+
+
+    totalElement.textContent =
+        formatCurrency(
+            finalTotal
+        );
+
+
+    deliveryChargeElement.textContent =
+        "FREE";
+
+
+    if (discountAmount > 0) {
+
+        discountRow.style.display =
+            "flex";
+
+    } else {
+
+        discountRow.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =====================================================
+                COUPON APPLY
+===================================================== */
+
+applyCouponButton.addEventListener(
+    "click",
+    applyCoupon
+);
+
+
+async function applyCoupon() {
+
+    const code =
+        couponCodeInput.value
+            .trim()
+            .toUpperCase();
+
+
+    if (!code) {
+
+        showCouponMessage(
+            "Please enter a coupon code.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    if (!currentProduct) {
+
+        showCouponMessage(
+            "Product information is not available.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        applyCouponButton.disabled =
+            true;
+
+        applyCouponButton.textContent =
+            "Checking...";
+
+
+        const couponsSnapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "coupons"
+                )
+            );
+
+
+        let matchedCoupon = null;
+
+
+        couponsSnapshot.forEach(
+            (couponDocument) => {
+
+                const coupon =
+                    couponDocument.data();
+
+
+                if (
+                    String(
+                        coupon.code || ""
+                    ).toUpperCase() ===
+                    code
+                ) {
+
+                    matchedCoupon = {
+
+                        id:
+                            couponDocument.id,
+
+                        ...coupon
+
+                    };
+
+                }
+
+            }
+        );
+
+
+        if (!matchedCoupon) {
+
+            removeAppliedCoupon();
+
+            showCouponMessage(
+                "Invalid coupon code.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const validation =
+            validateCoupon(
+                matchedCoupon
+            );
+
+
+        if (!validation.valid) {
+
+            removeAppliedCoupon();
+
+            showCouponMessage(
+                validation.message,
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const calculatedDiscount =
+            calculateDiscount(
+                matchedCoupon
+            );
+
+
+        if (
+            calculatedDiscount <= 0
+        ) {
+
+            removeAppliedCoupon();
+
+            showCouponMessage(
+                "This coupon does not provide a discount for this order.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        appliedCoupon = {
+
+            id:
+                matchedCoupon.id,
+
+            code:
+                matchedCoupon.code,
+
+            discountType:
+                matchedCoupon.discountType,
+
+            discountValue:
+                Number(
+                    matchedCoupon.discountValue || 0
+                ),
+
+            minimumOrder:
+                Number(
+                    matchedCoupon.minimumOrder || 0
+                ),
+
+            maximumDiscount:
+                Number(
+                    matchedCoupon.maximumDiscount || 0
+                )
+
+        };
+
+
+        discountAmount =
+            calculatedDiscount;
+
+
+        updateOrderSummary();
+
+
+        showCouponMessage(
+            `${matchedCoupon.code} applied successfully. You saved ${formatCurrency(
+                discountAmount
+            )}.`,
+            "success"
+        );
+
+
+        couponCodeInput.value =
+            matchedCoupon.code;
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to apply coupon:",
+            error
+        );
+
+
+        showCouponMessage(
+            "Unable to verify coupon. Please try again.",
+            "error"
+        );
+
+    } finally {
+
+        applyCouponButton.disabled =
+            false;
+
+        applyCouponButton.textContent =
+            "Apply";
+
+    }
 
 }
 
-const checkoutForm = document.querySelector("#checkoutForm");
 
-checkoutForm.addEventListener("submit", submitOrder);
+/* =====================================================
+                VALIDATE COUPON
+===================================================== */
 
-async function submitOrder(event) {
+function validateCoupon(
+    coupon
+) {
 
-  event.preventDefault();
+    const today =
+        getTodayDate();
 
-  if (!currentProduct) {
 
-    alert("Product information is missing.");
+    if (
+        coupon.active === false
+    ) {
 
-    return;
+        return {
 
-  }
+            valid: false,
 
-  const customer = {
+            message:
+                "This coupon is currently inactive."
 
-    name: document.querySelector("#customerName").value.trim(),
+        };
 
-    phone: document.querySelector("#customerPhone").value.trim(),
+    }
 
-    email: document.querySelector("#customerEmail").value.trim()
 
-  };
+    if (
+        coupon.startDate &&
+        today < coupon.startDate
+    ) {
 
-  const address = {
+        return {
 
-    line1: document.querySelector("#addressLine1").value.trim(),
+            valid: false,
 
-    line2: document.querySelector("#addressLine2").value.trim(),
+            message:
+                "This coupon is not active yet."
 
-    city: document.querySelector("#city").value.trim(),
+        };
 
-    state: document.querySelector("#state").value.trim(),
+    }
 
-    pincode: document.querySelector("#pincode").value.trim(),
 
-    instructions: document.querySelector("#instructions").value.trim()
+    if (
+        coupon.expiryDate &&
+        today > coupon.expiryDate
+    ) {
 
-  };
+        return {
 
-  const notes = document.querySelector("#orderNotes").value.trim();
+            valid: false,
 
-  const deliveryDate = document.querySelector("#deliveryDate").value;
+            message:
+                "This coupon has expired."
 
-  if (
+        };
 
-    !customer.name ||
+    }
 
-    !customer.phone ||
 
-    !address.line1 ||
+    const usageLimit =
+        Number(
+            coupon.usageLimit || 0
+        );
 
-    !address.city ||
 
-    !address.state ||
+    const usageCount =
+        Number(
+            coupon.usageCount || 0
+        );
 
-    !address.pincode
 
-  ) {
+    if (
+        usageLimit > 0 &&
+        usageCount >= usageLimit
+    ) {
 
-    alert("Please fill all required fields.");
+        return {
 
-    return;
+            valid: false,
 
-  }
+            message:
+                "This coupon has reached its usage limit."
 
-  const orderData = {
+        };
 
-    customer,
+    }
 
-    address,
 
-    notes,
+    const minimumOrder =
+        Number(
+            coupon.minimumOrder || 0
+        );
 
-    deliveryDate,
 
-    product: {
+    if (
+        subtotal < minimumOrder
+    ) {
 
-      id: currentProduct.productId,
+        return {
 
-      name: currentProduct.name,
+            valid: false,
 
-      category: currentProduct.category,
+            message:
+                `Minimum order value for this coupon is ${formatCurrency(
+                    minimumOrder
+                )}.`
 
-      image: currentProduct.image,
+        };
 
-      price: Number(currentProduct.price || 0)
+    }
 
-    },
 
-    orderStatus: "Pending",
+    return {
 
-    paymentStatus: "Pending",
+        valid: true
 
-    createdAt: serverTimestamp()
-
-  };
-
-  try {
-
-    document.querySelector("#placeOrderBtn").disabled = true;
-
-    document.querySelector("#placeOrderBtn").textContent = "Placing Order...";
-
-    await saveOrder(orderData);
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert("Unable to place order. Please try again.");
-
-    document.querySelector("#placeOrderBtn").disabled = false;
-
-    document.querySelector("#placeOrderBtn").textContent = "Place Order";
-
-  }
+    };
 
 }
-async function saveOrder(orderData) {
 
-  const orderId = `DS-${Date.now()}`;
 
-  orderData.orderId = orderId;
+/* =====================================================
+                CALCULATE DISCOUNT
+===================================================== */
 
-  await addDoc(
+function calculateDiscount(
+    coupon
+) {
 
-    collection(db, "orders"),
+    const value =
+        Number(
+            coupon.discountValue || 0
+        );
 
+
+    let discount = 0;
+
+
+    if (
+        coupon.discountType ===
+        "percentage"
+    ) {
+
+        discount =
+            subtotal *
+            (value / 100);
+
+
+        const maximumDiscount =
+            Number(
+                coupon.maximumDiscount || 0
+            );
+
+
+        if (
+            maximumDiscount > 0 &&
+            discount > maximumDiscount
+        ) {
+
+            discount =
+                maximumDiscount;
+
+        }
+
+    } else if (
+        coupon.discountType ===
+        "fixed"
+    ) {
+
+        discount =
+            value;
+
+    }
+
+
+    return Math.min(
+        Math.max(
+            0,
+            discount
+        ),
+        subtotal
+    );
+
+}
+
+
+/* =====================================================
+                REMOVE COUPON
+===================================================== */
+
+function removeAppliedCoupon() {
+
+    appliedCoupon =
+        null;
+
+
+    discountAmount =
+        0;
+
+
+    updateOrderSummary();
+
+}
+
+
+/* =====================================================
+                COUPON MESSAGE
+===================================================== */
+
+function showCouponMessage(
+    message,
+    type
+) {
+
+    couponMessage.textContent =
+        message;
+
+
+    couponMessage.className =
+        `coupon-message ${type}`;
+
+}
+
+
+/* =====================================================
+                CHECKOUT SUBMIT
+===================================================== */
+
+checkoutForm.addEventListener(
+    "submit",
+    submitOrder
+);
+
+
+async function submitOrder(
+    event
+) {
+
+    event.preventDefault();
+
+
+    /* =====================================================
+                    TERMS CHECK
+    ===================================================== */
+
+    if (
+        !termsAccepted.checked
+    ) {
+
+        alert(
+            "Please accept the Terms & Conditions before placing your order."
+        );
+
+
+        termsAccepted.focus();
+
+        return;
+
+    }
+
+
+    if (!currentProduct) {
+
+        alert(
+            "Product information is missing."
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+                    CUSTOMER DATA
+    ===================================================== */
+
+    const customer = {
+
+        name:
+            document
+                .querySelector("#customerName")
+                .value
+                .trim(),
+
+        phone:
+            document
+                .querySelector("#customerPhone")
+                .value
+                .trim(),
+
+        email:
+            document
+                .querySelector("#customerEmail")
+                .value
+                .trim()
+
+    };
+
+
+    /* =====================================================
+                    ADDRESS DATA
+    ===================================================== */
+
+    const address = {
+
+        line1:
+            document
+                .querySelector("#addressLine1")
+                .value
+                .trim(),
+
+        line2:
+            document
+                .querySelector("#addressLine2")
+                .value
+                .trim(),
+
+        city:
+            document
+                .querySelector("#city")
+                .value
+                .trim(),
+
+        state:
+            document
+                .querySelector("#state")
+                .value
+                .trim(),
+
+        pincode:
+            document
+                .querySelector("#pincode")
+                .value
+                .trim(),
+
+        instructions:
+            document
+                .querySelector("#instructions")
+                .value
+                .trim()
+
+    };
+
+
+    const notes =
+        document
+            .querySelector("#orderNotes")
+            .value
+            .trim();
+
+
+    const deliveryDate =
+        document
+            .querySelector("#deliveryDate")
+            .value;
+
+
+    /* =====================================================
+                    VALIDATE CUSTOMER
+    ===================================================== */
+
+    if (
+        !customer.name ||
+        !customer.phone ||
+        !address.line1 ||
+        !address.city ||
+        !address.state ||
+        !address.pincode
+    ) {
+
+        alert(
+            "Please fill all required fields."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !validatePhone(
+            customer.phone
+        )
+    ) {
+
+        alert(
+            "Please enter a valid 10-digit mobile number."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !validateEmail(
+            customer.email
+        )
+    ) {
+
+        alert(
+            "Please enter a valid email address."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !/^\d{6}$/.test(
+            address.pincode
+        )
+    ) {
+
+        alert(
+            "Please enter a valid 6-digit pincode."
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+                    FINAL TOTAL
+    ===================================================== */
+
+    const finalTotal =
+        Math.max(
+            0,
+            subtotal - discountAmount
+        );
+
+
+    /* =====================================================
+                    ORDER DATA
+    ===================================================== */
+
+    const orderData = {
+
+        customer,
+
+        address,
+
+        notes,
+
+        deliveryDate,
+
+        product: {
+
+            id:
+                currentProduct.productId,
+
+            name:
+                currentProduct.name,
+
+            category:
+                currentProduct.category,
+
+            image:
+                currentProduct.image,
+
+            price:
+                Number(
+                    currentProduct.price || 0
+                )
+
+        },
+
+        pricing: {
+
+            subtotal:
+                subtotal,
+
+            discount:
+                discountAmount,
+
+            delivery:
+                0,
+
+            total:
+                finalTotal
+
+        },
+
+        coupon:
+            appliedCoupon
+                ? {
+
+                    id:
+                        appliedCoupon.id,
+
+                    code:
+                        appliedCoupon.code,
+
+                    discountType:
+                        appliedCoupon.discountType,
+
+                    discountValue:
+                        appliedCoupon.discountValue,
+
+                    discountAmount:
+                        discountAmount
+
+                }
+                : null,
+
+        orderStatus:
+            "Pending",
+
+        paymentStatus:
+            "Pending",
+
+        createdAt:
+            serverTimestamp()
+
+    };
+
+
+    try {
+
+        placeOrderButton.disabled =
+            true;
+
+
+        placeOrderButton.innerHTML =
+            `<i class="fa-solid fa-spinner fa-spin"></i> Placing Order...`;
+
+
+        await saveOrder(
+            orderData
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to place order:",
+            error
+        );
+
+
+        alert(
+            "Unable to place order. Please try again."
+        );
+
+
+        placeOrderButton.disabled =
+            false;
+
+
+        placeOrderButton.innerHTML =
+            `<i class="fa-solid fa-lock"></i> Place Order`;
+
+    }
+
+}
+
+
+/* =====================================================
+                SAVE ORDER
+===================================================== */
+
+async function saveOrder(
     orderData
+) {
 
-  );
+    const orderId =
+        `DS-${Date.now()}`;
 
-  checkoutForm.reset();
 
-  window.location.href =
-    `success.html?order=${encodeURIComponent(orderId)}`;
+    orderData.orderId =
+        orderId;
 
-}
 
-window.addEventListener("DOMContentLoaded", () => {
+    await addDoc(
 
-  const button = document.querySelector("#placeOrderBtn");
+        collection(
+            db,
+            "orders"
+        ),
 
-  if (button) {
+        orderData
 
-    button.disabled = false;
+    );
 
-  }
 
-});
+    checkoutForm.reset();
 
-document.querySelectorAll("input, textarea").forEach((field) => {
 
-  field.addEventListener("input", () => {
-
-    field.classList.remove("input-error");
-
-  });
-
-});
-
-function validatePhone(phone) {
-
-  return /^[6-9]\d{9}$/.test(phone);
+    window.location.href =
+        `success.html?order=${encodeURIComponent(
+            orderId
+        )}`;
 
 }
 
-function validateEmail(email) {
 
-  if (!email) {
+/* =====================================================
+                EMPTY STATE
+===================================================== */
 
-    return true;
+function renderEmptyState(
+    title,
+    message
+) {
 
-  }
+    checkoutItems.innerHTML = `
 
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        <div class="empty-cart">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <h2>
+                ${escapeHtml(title)}
+            </h2>
+
+            <p>
+                ${escapeHtml(message)}
+            </p>
+
+            <a
+                href="products.html"
+                class="btn btn-primary">
+
+                Browse Products
+
+            </a>
+
+        </div>
+
+    `;
 
 }
 
-checkoutForm.addEventListener("submit", (event) => {
 
-  const phone = document.querySelector("#customerPhone").value.trim();
+/* =====================================================
+                PHONE VALIDATION
+===================================================== */
 
-  const email = document.querySelector("#customerEmail").value.trim();
+function validatePhone(
+    phone
+) {
 
-  if (!validatePhone(phone)) {
+    return /^[6-9]\d{9}$/.test(
+        phone
+    );
 
-    event.preventDefault();
+}
 
-    alert("Please enter a valid 10-digit mobile number.");
 
-    return;
+/* =====================================================
+                EMAIL VALIDATION
+===================================================== */
 
-  }
+function validateEmail(
+    email
+) {
 
-  if (!validateEmail(email)) {
+    if (!email) {
 
-    event.preventDefault();
+        return true;
 
-    alert("Please enter a valid email address.");
+    }
 
-    return;
 
-  }
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        email
+    );
 
-});
+}
 
-console.log("DS Decor Checkout Loaded");
+
+/* =====================================================
+                TODAY DATE
+===================================================== */
+
+function getTodayDate() {
+
+    const now =
+        new Date();
+
+
+    const year =
+        now.getFullYear();
+
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+/* =====================================================
+                CURRENCY FORMAT
+===================================================== */
+
+function formatCurrency(
+    amount
+) {
+
+    return `₹${Number(
+        amount
+    ).toLocaleString(
+        "en-IN"
+    )}`;
+
+}
+
+
+/* =====================================================
+                HTML ESCAPE
+===================================================== */
+
+function escapeHtml(
+    value
+) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+                INPUT ERROR CLEANUP
+===================================================== */
+
+document
+    .querySelectorAll(
+        "input, textarea"
+    )
+    .forEach(
+        (field) => {
+
+            field.addEventListener(
+                "input",
+                () => {
+
+                    field.classList.remove(
+                        "input-error"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+                ENABLE PLACE ORDER
+===================================================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        if (placeOrderButton) {
+
+            placeOrderButton.disabled =
+                false;
+
+        }
+
+    }
+);
+
+
+console.log(
+    "DS Decor Checkout Loaded"
+);

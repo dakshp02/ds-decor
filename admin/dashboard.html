@@ -5,7 +5,7 @@
 
     <!-- =====================================================
                         META DATA
-    ====================================================== -->
+    ===================================================== -->
 
     <meta charset="UTF-8">
 
@@ -23,9 +23,10 @@
         name="robots"
         content="noindex,nofollow">
 
+
     <!-- =====================================================
                         GOOGLE FONTS
-    ====================================================== -->
+    ===================================================== -->
 
     <link
         rel="preconnect"
@@ -43,7 +44,7 @@
 
     <!-- =====================================================
                         STYLESHEET
-    ====================================================== -->
+    ===================================================== -->
 
     <link
         rel="stylesheet"
@@ -51,11 +52,13 @@
 
 </head>
 
+
 <body>
+
 
     <!-- =====================================================
                         ADMIN HEADER
-    ====================================================== -->
+    ===================================================== -->
 
     <header class="dashboard-header">
 
@@ -66,38 +69,47 @@
                 class="brand">
 
                 <span class="brand-mark">
-
                     DS
-
                 </span>
 
                 <span>
-
                     DS Decor Admin
-
                 </span>
 
             </a>
 
+
             <button
                 id="logoutBtn"
-                class="logout-btn">
+                class="logout-btn"
+                type="button">
 
                 <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true">
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true">
 
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                <polyline points="16 17 21 12 16 7"></polyline>
-                <line x1="21" y1="12" x2="9" y2="12"></line>
+                    <path
+                        d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4">
+                    </path>
 
-            </svg>
+                    <polyline
+                        points="16 17 21 12 16 7">
+                    </polyline>
+
+                    <line
+                        x1="21"
+                        y1="12"
+                        x2="9"
+                        y2="12">
+                    </line>
+
+                </svg>
 
                 Logout
 
@@ -107,348 +119,441 @@
 
     </header>
 
+
     <!-- =====================================================
                         MAIN
-    ====================================================== -->
+    ===================================================== -->
 
     <main class="dashboard-main">
 
         <div class="dashboard-container">
 
+
             <!-- =====================================================
                             PAGE HEADER
-            ====================================================== -->
+            ===================================================== -->
 
             <section class="dashboard-title">
 
                 <p class="eyebrow">
-
                     ADMIN PANEL
-
                 </p>
 
                 <h1>
-
                     Dashboard
-
                 </h1>
 
                 <p>
-
                     Manage customer orders, products,
                     and monitor your business from one place.
-
                 </p>
 
             </section>
 
+
             <!-- =====================================================
-                    DASHBOARD CARDS
-===================================================== -->
+                            DASHBOARD CARDS
+            ===================================================== -->
 
+            <section class="dashboard-cards">
 
-<!-- =====================================================
-                    DASHBOARD CARDS
-===================================================== -->
 
-<section class="dashboard-cards">
+                <!-- =================================================
+                                TOTAL ORDERS
+                ================================================== -->
 
-    <!-- =====================================================
-                        TOTAL ORDERS
-    ====================================================== -->
+                <article class="dashboard-card">
 
-    <article class="dashboard-card">
+                    <div class="card-icon pink">
 
-        <div class="card-icon pink">
+                        <svg
+                            class="icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
 
-            <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z">
+                            </path>
 
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            <polyline
+                                points="3.27 6.96 12 12.01 20.73 6.96">
+                            </polyline>
 
-            </svg>
+                            <line
+                                x1="12"
+                                y1="22.08"
+                                x2="12"
+                                y2="12">
+                            </line>
 
-        </div>
+                        </svg>
 
-        <div class="card-content">
+                    </div>
 
-            <p>
 
-                Total Orders
+                    <div class="card-content">
 
-            </p>
+                        <p>
+                            Total Orders
+                        </p>
 
-            <h2 id="totalOrders">
+                        <h2 id="totalOrders">
+                            0
+                        </h2>
 
-                0
+                    </div>
 
-            </h2>
+                </article>
 
-        </div>
 
-    </article>
+                <!-- =================================================
+                                PENDING
+                ================================================== -->
 
-    <!-- =====================================================
-                        PENDING
-    ====================================================== -->
+                <article class="dashboard-card">
 
-    <article class="dashboard-card">
+                    <div class="card-icon orange">
 
-        <div class="card-icon orange">
+                        <svg
+                            class="icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
 
-            <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true">
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9">
+                            </circle>
 
-                <circle cx="12" cy="12" r="9"></circle>
-                <polyline points="12 7 12 12 15 14"></polyline>
+                            <polyline
+                                points="12 7 12 12 15 14">
+                            </polyline>
 
-            </svg>
+                        </svg>
 
-        </div>
+                    </div>
 
-        <div class="card-content">
 
-            <p>
+                    <div class="card-content">
 
-                Pending
+                        <p>
+                            Pending
+                        </p>
 
-            </p>
+                        <h2 id="pendingOrders">
+                            0
+                        </h2>
 
-            <h2 id="pendingOrders">
+                    </div>
 
-                0
+                </article>
 
-            </h2>
 
-        </div>
+                <!-- =================================================
+                                COMPLETED
+                ================================================== -->
 
-    </article>
+                <article class="dashboard-card">
 
-    <!-- =====================================================
-                        COMPLETED
-    ====================================================== -->
+                    <div class="card-icon green">
 
-    <article class="dashboard-card">
+                        <svg
+                            class="icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
 
-        <div class="card-icon green">
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9">
+                            </circle>
 
-            <svg
-    class="icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true">
+                            <polyline
+                                points="8 12 11 15 16 9">
+                            </polyline>
 
-    <circle cx="12" cy="12" r="9"></circle>
-    <polyline points="8 12 11 15 16 9"></polyline>
+                        </svg>
 
-</svg>
+                    </div>
 
-        </div>
 
-        <div class="card-content">
+                    <div class="card-content">
 
-            <p>
+                        <p>
+                            Completed
+                        </p>
 
-                Completed
+                        <h2 id="completedOrders">
+                            0
+                        </h2>
 
-            </p>
+                    </div>
 
-            <h2 id="completedOrders">
+                </article>
 
-                0
 
-            </h2>
+                <!-- =================================================
+                                REVENUE
+                ================================================== -->
 
-        </div>
+                <article class="dashboard-card">
 
-    </article>
+                    <div class="card-icon blue">
 
-    <!-- =====================================================
-                        REVENUE
-    ====================================================== -->
+                        <svg
+                            class="icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true">
 
-    <article class="dashboard-card">
+                            <path d="M6 4h12"></path>
 
-        <div class="card-icon blue">
+                            <path d="M6 8h12"></path>
 
-            <svg
-    class="icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true">
+                            <path
+                                d="M8 4c4 0 6 2 6 5s-2 5-6 5">
+                            </path>
 
-    <path d="M6 4h12"></path>
-    <path d="M6 8h12"></path>
-    <path d="M8 4c4 0 6 2 6 5s-2 5-6 5"></path>
-    <path d="M8 14l7 6"></path>
+                            <path d="M8 14l7 6"></path>
 
-</svg>
+                        </svg>
 
-        </div>
+                    </div>
 
-        <div class="card-content">
 
-            <p>
+                    <div class="card-content">
 
-                Revenue
+                        <p>
+                            Revenue
+                        </p>
 
-            </p>
+                        <h2 id="totalRevenue">
+                            ₹0
+                        </h2>
 
-            <h2 id="totalRevenue">
+                    </div>
 
-                ₹0
+                </article>
 
-            </h2>
 
-        </div>
+            </section>
 
-    </article>
 
-</section>
+            <!-- =====================================================
+                            QUICK ACTIONS
+            ===================================================== -->
 
-<!-- =====================================================
-                    QUICK ACTIONS
-===================================================== -->
+            <section class="dashboard-section">
 
-<section class="dashboard-section">
+                <div class="section-header">
 
-    <div class="section-header">
+                    <div>
 
-        <div>
+                        <p class="eyebrow">
+                            QUICK ACTIONS
+                        </p>
 
-            <p class="eyebrow">
+                        <h2>
+                            Manage Your Store
+                        </h2>
 
-                QUICK ACTIONS
+                    </div>
 
-            </p>
+                </div>
 
-            <h2>
 
-                Manage Your Store
+                <div class="quick-actions">
 
-            </h2>
 
-        </div>
+                    <!-- =================================================
+                                    ORDERS
+                    ================================================== -->
 
-    </div>
+                    <a
+                        href="orders.html"
+                        class="action-card">
 
-    <div class="quick-actions">
+                        <div class="action-icon pink">
 
-        <a
-            href="orders.html"
-            class="action-card">
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
 
-            <div class="action-icon pink">
+                                <path
+                                    d="M21 8l-9 5-9-5">
+                                </path>
 
-                <svg
-    class="icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true">
+                                <path
+                                    d="M3 8l9-5 9 5v8l-9 5-9-5Z">
+                                </path>
 
-    <path d="M21 8l-9 5-9-5"></path>
-    <path d="M3 8l9-5 9 5v8l-9 5-9-5Z"></path>
-    <path d="M12 13v8"></path>
+                                <path
+                                    d="M12 13v8">
+                                </path>
 
-</svg>
+                            </svg>
 
-            </div>
+                        </div>
 
-            <h3>
+                        <h3>
+                            Manage Orders
+                        </h3>
 
-                Manage Orders
+                        <p>
+                            View, update and manage all customer orders.
+                        </p>
 
-            </h3>
+                    </a>
 
-            <p>
 
-                View, update and manage all customer orders.
+                    <!-- =================================================
+                                    PRODUCTS
+                    ================================================== -->
 
-            </p>
+                    <a
+                        href="products.html"
+                        class="action-card">
 
-        </a>
+                        <div class="action-icon blue">
 
-        <a
-            href="products.html"
-            class="action-card">
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
 
-            <div class="action-icon blue">
+                                <line
+                                    x1="12"
+                                    y1="5"
+                                    x2="12"
+                                    y2="19">
+                                </line>
 
-                <svg
-    class="icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true">
+                                <line
+                                    x1="5"
+                                    y1="12"
+                                    x2="19"
+                                    y2="12">
+                                </line>
 
-    <line x1="12" y1="5" x2="12" y2="19"></line>
-    <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
 
-</svg>
+                        </div>
 
-            </div>
+                        <h3>
+                            Manage Products
+                        </h3>
 
-            <h3>
+                        <p>
+                            Add, edit and delete products from your catalogue.
+                        </p>
 
-               Manage Products
+                    </a>
 
-            </h3>
 
-            <p>
+                    <!-- =================================================
+                                    COUPONS
+                    ================================================== -->
 
-                Add, edit and delete products from your catalogue.
+                    <a
+                        href="coupons.html"
+                        class="action-card">
 
-            </p>
+                        <div class="action-icon orange">
 
-        </a>
+                            <svg
+                                class="icon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true">
 
-    </div>
+                                <path
+                                    d="M20 12a2 2 0 0 0 0-4V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 0 0 4h12a2 2 0 0 0 2-2v-3a2 2 0 0 0 0-4Z">
+                                </path>
 
-</section>
+                                <path
+                                    d="M13 7l-4 10">
+                                </path>
+
+                                <circle
+                                    cx="9"
+                                    cy="7"
+                                    r="1">
+                                </circle>
+
+                                <circle
+                                    cx="15"
+                                    cy="17"
+                                    r="1">
+                                </circle>
+
+                            </svg>
+
+                        </div>
+
+                        <h3>
+                            Manage Coupons
+                        </h3>
+
+                        <p>
+                            Create, edit and manage promotional coupon codes.
+                        </p>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
 
         </div>
 
     </main>
 
+
     <!-- =====================================================
                         SCRIPT
-    ====================================================== -->
+    ===================================================== -->
 
     <script
         type="module"
         src="dashboard.js">
     </script>
+
 
 </body>
 

@@ -723,3 +723,77 @@ padding:16px;
     display:none !important;
 
 }
+/* =====================================================
+                CHECKOUT POLICY
+===================================================== */
+
+.checkout-policy{
+    margin-top:20px;
+}
+
+.checkbox-container{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    width:100%;
+    cursor:pointer;
+    line-height:1.5;
+}
+
+.checkbox-container input{
+    width:18px;
+    height:18px;
+    flex:0 0 18px;
+    margin:3px 0 0;
+    cursor:pointer;
+}
+
+.policy-text{
+    display:block;
+    font-size:.9rem;
+    color:var(--color-muted);
+}
+
+.policy-text a{
+    color:var(--color-primary);
+    text-decoration:underline;
+    text-underline-offset:2px;
+    white-space:nowrap;
+}
+
+.policy-text a:hover{
+    opacity:.75;
+}
+@media (max-width:767px){
+
+    .policy-text{
+        font-size:.85rem;
+    }
+
+}
+/* =====================================================
+                COUPON MESSAGE
+===================================================== */
+
+.coupon-message{
+    margin-top:8px;
+    font-size:.85rem;
+    line-height:1.5;
+    min-height:20px;
+}
+
+.coupon-message.success{
+    color:#2e7d32;
+}
+
+.coupon-message.error{
+    color:#c62828;
+}
+
+#discountRow{
+    color:var(--color-primary);
+}
+
+#discountAmount{
+    font-weight:600;
+}
