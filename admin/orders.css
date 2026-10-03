@@ -337,20 +337,15 @@ body{
 }
 
 
-.search-box i{
-
+.search-box .icon{
     position:absolute;
-
     top:50%;
-
     left:18px;
-
+    width:20px;
+    height:20px;
     transform:translateY(-50%);
-
     color:var(--color-muted);
-
-    font-size:.95rem;
-
+    pointer-events:none;
 }
 
 
@@ -494,15 +489,14 @@ body{
 
 .table-wrapper{
 
+    width:100%;
     background:var(--color-white);
-
     border:1px solid var(--color-border);
-
     border-radius:22px;
-
-    overflow:hidden;
-
+    overflow-x:auto;
+    overflow-y:hidden;
     box-shadow:var(--shadow-card);
+    -webkit-overflow-scrolling:touch;
 
 }
 
@@ -514,7 +508,7 @@ body{
 .orders-table{
 
     width:100%;
-
+    min-width:1000px;
     border-collapse:collapse;
 
 }
@@ -739,12 +733,9 @@ body{
 }
 
 
-.loading-cell i{
-
+.loading-cell .icon{
     margin-right:12px;
-
     color:var(--color-primary);
-
 }
 /* =====================================================
                     MODAL
@@ -838,30 +829,25 @@ body{
 ===================================================== */
 
 .close-btn{
-
     width:42px;
-
     height:42px;
-
     border:none;
-
     border-radius:50%;
-
     background:#F5F5F5;
-
     cursor:pointer;
-
-    font-size:1rem;
-
     transition:.25s;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
 }
 
-
-.close-btn:hover{
-
-    background:#ECECEC;
-
+.close-btn .icon{
+    width:18px;
+    height:18px;
+    display:block;
+    margin:0;
 }
 
 
@@ -983,29 +969,30 @@ body{
 
 
 .update-btn{
-
     width:100%;
-
     height:56px;
-
     border:none;
-
     border-radius:14px;
-
     background:var(--color-primary);
-
     color:var(--color-white);
-
     font-size:1rem;
-
     font-family:inherit;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.3s;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:0;
+}
+
+.update-btn .icon{
+    width:20px;
+    height:20px;
+    display:block;
+    margin:0;
 }
 
 
@@ -1056,29 +1043,30 @@ body{
 
 
 .delete-btn{
-
     width:100%;
-
     height:52px;
-
     border:none;
-
     border-radius:14px;
-
     background:var(--color-danger);
-
     color:#fff;
-
     cursor:pointer;
-
     font-family:inherit;
-
     font-size:.95rem;
-
     font-weight:600;
-
     transition:.3s;
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:0;
+}
+
+.delete-btn .icon{
+    width:20px;
+    height:20px;
+    display:block;
+    margin:0;
 }
 
 
@@ -1088,6 +1076,15 @@ body{
 
 }
 
+/* =====================================================
+                    EMPTY STATE VISIBILITY
+===================================================== */
+
+.empty-state.hidden{
+
+    display:none !important;
+
+}
 
 /* =====================================================
                     EMPTY STATE
@@ -1148,4 +1145,256 @@ body{
 
     line-height:1.8;
 
+}
+
+/* =====================================================
+                    MOBILE ORDERS
+===================================================== */
+
+@media (max-width: 767px){
+
+    .orders-main{
+
+        padding:30px 0;
+
+    }
+
+
+    .orders-title{
+
+        font-size:2rem;
+
+    }
+
+
+    .orders-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:12px;
+
+    }
+
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+
+    #statusFilter,
+    .refresh-btn{
+
+        width:100%;
+
+    }
+
+
+    /* Hide desktop table header */
+
+    .orders-table{
+
+        min-width:0;
+
+    }
+
+
+    .orders-table thead{
+
+        display:none;
+
+    }
+
+
+    .orders-table,
+    .orders-table tbody,
+    .orders-table tr,
+    .orders-table td{
+
+        display:block;
+
+        width:100%;
+
+    }
+
+
+    /* Each order becomes a card */
+
+    .orders-table tr{
+
+        background:var(--color-white);
+
+        border:1px solid var(--color-border);
+
+        border-radius:18px;
+
+        margin-bottom:16px;
+
+        padding:8px 18px;
+
+        box-shadow:0 4px 18px rgba(0,0,0,.05);
+
+    }
+
+
+    .orders-table td{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        gap:16px;
+
+        padding:13px 0;
+
+        border-bottom:1px solid #f0f0f0;
+
+        text-align:right;
+
+    }
+
+
+    .orders-table td:last-child{
+
+        border-bottom:none;
+
+    }
+
+
+    .orders-table td::before{
+
+        font-weight:600;
+
+        color:var(--color-muted);
+
+        text-align:left;
+
+        flex-shrink:0;
+
+    }
+
+
+    .orders-table td:nth-child(1)::before{
+
+        content:"Order ID";
+
+    }
+
+
+    .orders-table td:nth-child(2)::before{
+
+        content:"Customer";
+
+    }
+
+
+    .orders-table td:nth-child(3)::before{
+
+        content:"Phone";
+
+    }
+
+
+    .orders-table td:nth-child(4)::before{
+
+        content:"Amount";
+
+    }
+
+
+    .orders-table td:nth-child(5)::before{
+
+        content:"Status";
+
+    }
+
+
+    .orders-table td:nth-child(6)::before{
+
+        content:"Delivery";
+
+    }
+
+
+    .orders-table td:nth-child(7)::before{
+
+        content:"Ordered On";
+
+    }
+
+
+    .orders-table td:nth-child(8)::before{
+
+        content:"Action";
+
+    }
+
+
+    .orders-table .manage-btn{
+
+        width:auto;
+
+        margin-left:auto;
+
+    }
+
+
+    .empty-state{
+
+        padding:60px 20px;
+
+    }
+
+
+    .empty-icon{
+
+        width:80px;
+
+        height:80px;
+
+        font-size:2rem;
+
+    }
+
+}
+
+/* =====================================================
+                    REFRESH LOADING
+===================================================== */
+
+.refresh-btn.loading{
+
+    opacity:.7;
+
+    cursor:wait;
+
+}
+/* =====================================================
+                    ORDERS ICONS
+===================================================== */
+
+.icon{
+    width:20px;
+    height:20px;
+    display:block;
+    flex-shrink:0;
+}
+
+.loading-icon{
+    animation:orders-spin 1s linear infinite;
+}
+
+@keyframes orders-spin{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
 }

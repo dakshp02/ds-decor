@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+                        META DATA
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>DS Decor | Products</title>
+
+    <meta
+        name="description"
+        content="Manage DS Decor products">
+
+    <meta
+        name="robots"
+        content="noindex,nofollow">
+
+
+    <!-- =====================================================
+                        GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+                        STYLESHEET
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="products.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+                        NAVBAR
+    ====================================================== -->
+
+    <header class="admin-header">
+
+        <div class="logo">
+
+            <span class="logo-mark">
+
+                DS
+
+            </span>
+
+            <h2>
+
+                DS Decor Admin
+
+            </h2>
+
+        </div>
+
+
+        <nav class="admin-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-link">
+
+                Dashboard
+
+            </a>
+
+
+            <button
+                id="logoutBtn"
+                class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+                        PAGE HEADER
+    ====================================================== -->
+
+    <main class="container">
+
+        <section class="page-header">
+
+            <span class="section-label">
+
+                PRODUCT MANAGEMENT
+
+            </span>
+
+
+            <h1>
+
+                Manage Products
+
+            </h1>
+
+
+            <p>
+
+                Add, edit and delete products from your catalogue.
+
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+                            TOOLBAR
+        ====================================================== -->
+
+        <section class="toolbar">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search product by name or category">
+
+
+            <button
+                id="addProductBtn"
+                class="primary-btn">
+
+                + Add Product
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================================
+                            PRODUCTS TABLE
+        ====================================================== -->
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+
+                            Image
+
+                        </th>
+
+
+                        <th>
+
+                            Name
+
+                        </th>
+
+
+                        <th>
+
+                            Category
+
+                        </th>
+
+
+                        <th>
+
+                            Price
+
+                        </th>
+
+
+                        <th>
+
+                            Featured
+
+                        </th>
+
+
+                        <th>
+
+                            Actions
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="productsTableBody">
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            Loading Products...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- =====================================================
+                            EMPTY STATE
+        ====================================================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state hidden">
+
+            <h3>
+
+                No Products Found
+
+            </h3>
+
+
+            <p>
+
+                Click "Add Product" to create your first product.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+                        PRODUCT MODAL
+    ====================================================== -->
+
+    <div
+        id="productModal"
+        class="modal hidden">
+
+        <div class="modal-content">
+
+
+            <!-- =====================================================
+                            MODAL HEADER
+            ====================================================== -->
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle">
+
+                    Add Product
+
+                </h2>
+
+
+                <button
+                    id="closeModal"
+                    class="close-btn"
+                    type="button"
+                    aria-label="Close modal">
+
+
+                    <svg
+                        class="icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true">
+
+                        <line
+                            x1="18"
+                            y1="6"
+                            x2="6"
+                            y2="18">
+                        </line>
+
+                        <line
+                            x1="6"
+                            y1="6"
+                            x2="18"
+                            y2="18">
+                        </line>
+
+                    </svg>
+
+
+                </button>
+
+            </div>
+
+
+            <!-- =====================================================
+                            PRODUCT FORM
+            ====================================================== -->
+
+            <form
+                id="productForm"
+                class="product-form">
+
+
+                <!-- =====================================================
+                                PRODUCT NAME
+                ====================================================== -->
+
+                <div class="form-group">
+
+                    <label for="productName">
+
+                        Product Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="productName"
+                        required>
+
+                </div>
+
+
+                <!-- =====================================================
+                                CATEGORY
+                ====================================================== -->
+
+                <div class="form-group">
+
+                    <label for="productCategory">
+
+                        Category
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="productCategory"
+                        required>
+
+                </div>
+
+
+                <!-- =====================================================
+                                PRICE
+                ====================================================== -->
+
+                <div class="form-group">
+
+                    <label for="productPrice">
+
+                        Price
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="0"
+                        required>
+
+                </div>
+
+
+                <!-- =====================================================
+                                FEATURED
+                ====================================================== -->
+
+                <div class="form-group">
+
+                    <label for="featuredProduct">
+
+                        Featured Product
+
+                    </label>
+
+
+                    <select id="featuredProduct">
+
+                        <option value="true">
+
+                            Yes
+
+                        </option>
+
+
+                        <option value="false">
+
+                            No
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =====================================================
+                                DESCRIPTION
+                ====================================================== -->
+
+                <div class="form-group full-width">
+
+                    <label for="productDescription">
+
+                        Description
+
+                    </label>
+
+
+                    <textarea
+                        id="productDescription"
+                        rows="4">
+                    </textarea>
+
+                </div>
+
+
+                <!-- =====================================================
+                                PRODUCT IMAGE
+                ====================================================== -->
+
+                <div class="form-group full-width">
+
+                    <label for="productImage">
+
+                        Product Image
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="productImage"
+                        accept="image/*">
+
+                </div>
+
+
+                <!-- =====================================================
+                                IMAGE PREVIEW
+                ====================================================== -->
+
+                <div class="image-preview">
+
+    <img
+        id="imagePreview"
+        src=""
+        alt="Product image preview">
+
+</div>
+
+
+                <!-- =====================================================
+                                MODAL ACTIONS
+                ====================================================== -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                        class="secondary-btn">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="saveProductBtn"
+                        class="primary-btn">
+
+                        Save Product
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+                        SCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="products.js">
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,992 @@
+/* =====================================================
+                PRODUCTS PAGE
+                DS DECOR
+===================================================== */
+
+
+/* =====================================================
+                    GOOGLE FONT
+===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap");
+
+
+/* =====================================================
+                    ROOT VARIABLES
+===================================================== */
+
+:root{
+
+    --color-primary:#E91E63;
+
+    --color-primary-dark:#C2185B;
+
+    --color-background:#F7F8FC;
+
+    --color-white:#FFFFFF;
+
+    --color-text:#333333;
+
+    --color-muted:#6C757D;
+
+    --color-border:#E8E8E8;
+
+    --color-success:#22C55E;
+
+    --color-warning:#F59E0B;
+
+    --color-danger:#EF4444;
+
+    --color-info:#3B82F6;
+
+    --shadow-card:
+        0 10px 30px rgba(0,0,0,.08);
+
+    --shadow-hover:
+        0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================================
+                    RESET
+===================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+}
+
+
+/* =====================================================
+                    CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+                    HEADER
+===================================================== */
+
+.admin-header{
+
+    background:var(--color-white);
+
+    border-bottom:1px solid var(--color-border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+
+.admin-header .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    min-height:80px;
+
+}
+
+
+/* =====================================================
+                    LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:var(--color-text);
+
+    font-weight:700;
+
+}
+
+
+.logo-mark{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:1.1rem;
+
+}
+
+
+/* =====================================================
+                    NAVIGATION
+===================================================== */
+
+.admin-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+
+.nav-link,
+
+.logout-btn{
+
+    border:none;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.nav-link{
+
+    background:#F3F3F3;
+
+    color:var(--color-text);
+
+}
+
+
+.nav-link:hover{
+
+    background:#ECECEC;
+
+}
+
+
+.logout-btn{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+}
+
+
+.logout-btn:hover{
+
+    background:var(--color-primary-dark);
+
+}
+/* =====================================================
+                    MAIN
+===================================================== */
+
+main{
+
+    padding:60px 0;
+
+}
+
+
+/* =====================================================
+                    PAGE HEADER
+===================================================== */
+
+.page-header{
+
+    margin-bottom:45px;
+
+}
+
+
+.section-label{
+
+    display:inline-block;
+
+    color:var(--color-primary);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+
+}
+
+
+.page-header h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:3rem;
+
+    margin-bottom:14px;
+
+    color:var(--color-text);
+
+}
+
+
+.page-header p{
+
+    max-width:650px;
+
+    color:var(--color-muted);
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+
+/* =====================================================
+                    TOOLBAR
+===================================================== */
+
+.toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+
+}
+
+
+/* =====================================================
+                    SEARCH
+===================================================== */
+
+#searchInput{
+
+    flex:1;
+
+    min-width:320px;
+
+    height:56px;
+
+    padding:0 18px;
+
+    border:1px solid var(--color-border);
+
+    border-radius:14px;
+
+    background:var(--color-white);
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+}
+
+
+#searchInput::placeholder{
+
+    color:#999;
+
+}
+
+
+#searchInput:focus{
+
+    outline:none;
+
+    border-color:var(--color-primary);
+
+    box-shadow:0 0 0 4px rgba(233,30,99,.10);
+
+}
+
+
+/* =====================================================
+                    BUTTONS
+===================================================== */
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    height:56px;
+
+    padding:0 28px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.primary-btn:hover{
+
+    background:var(--color-primary-dark);
+
+}
+
+
+.primary-btn:active{
+
+    transform:scale(.98);
+
+}
+/* =====================================================
+                    TABLE CONTAINER
+===================================================== */
+
+.table-container{
+
+    background:var(--color-white);
+
+    border:1px solid var(--color-border);
+
+    border-radius:22px;
+
+    overflow-x:auto;
+
+    box-shadow:var(--shadow-card);
+
+    transition:.3s;
+
+}
+
+
+.table-container:hover{
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+/* =====================================================
+                    TABLE
+===================================================== */
+
+table{
+
+    width:100%;
+
+    min-width:900px;
+
+    border-collapse:collapse;
+
+}
+
+
+/* =====================================================
+                    TABLE HEADER
+===================================================== */
+
+thead{
+
+    background:#FAFAFA;
+
+}
+
+
+th{
+
+    padding:20px 24px;
+
+    text-align:left;
+
+    font-size:.92rem;
+
+    font-weight:700;
+
+    color:var(--color-text);
+
+    border-bottom:1px solid var(--color-border);
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+                    TABLE BODY
+===================================================== */
+
+td{
+
+    padding:18px 24px;
+
+    border-bottom:1px solid #F3F3F3;
+
+    color:var(--color-muted);
+
+    font-size:.95rem;
+
+    vertical-align:middle;
+
+}
+
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+
+tbody tr:hover{
+
+    background:#FFF8FB;
+
+}
+
+
+tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+
+/* =====================================================
+                    PRODUCT IMAGE
+===================================================== */
+
+.product-image{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:14px;
+
+    border:1px solid var(--color-border);
+
+}
+
+
+/* =====================================================
+                    FEATURED BADGE
+===================================================== */
+
+.featured-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:80px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.15);
+
+    color:#15803D;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+
+.not-featured{
+
+    background:#F3F3F3;
+
+    color:#666;
+
+}
+
+
+/* =====================================================
+                    ACTIONS
+===================================================== */
+
+.actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
+}
+
+.actions .edit-btn,
+.actions .delete-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+}
+
+.actions .icon{
+    width:18px;
+    height:18px;
+    display:block;
+    margin:0;
+}
+
+
+/* =====================================================
+                    EDIT BUTTON
+===================================================== */
+
+.edit-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#3B82F6;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.edit-btn:hover{
+
+    background:#2563EB;
+
+}
+
+
+/* =====================================================
+                    DELETE BUTTON
+===================================================== */
+
+.delete-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--color-danger);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+}
+
+/* =====================================================
+                    UTILITY
+===================================================== */
+
+.hidden{
+    display:none !important;
+}
+
+/* =====================================================
+                    MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    z-index:1000;
+
+}
+
+.modal.hidden{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+                    MODAL CONTENT
+===================================================== */
+
+.modal-content{
+
+    width:100%;
+
+    max-width:800px;
+
+    background:var(--color-white);
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow-hover);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+}
+
+
+/* =====================================================
+                    MODAL HEADER
+===================================================== */
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid var(--color-border);
+
+}
+
+.modal-header h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:2rem;
+
+}
+
+
+/* =====================================================
+                    CLOSE BUTTON
+===================================================== */
+
+.close-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#F5F5F5;
+    cursor:pointer;
+    transition:.25s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+}
+
+.close-btn .icon{
+    width:18px;
+    height:18px;
+    display:block;
+    margin:0;
+}
+
+
+/* =====================================================
+                    PRODUCT FORM
+===================================================== */
+
+.product-form{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:var(--color-text);
+
+}
+
+.form-group input,
+
+.form-group textarea,
+
+.form-group select{
+
+    width:100%;
+
+    border:1px solid var(--color-border);
+
+    border-radius:14px;
+
+    padding:14px 16px;
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    transition:.25s;
+
+    background:var(--color-white);
+
+}
+
+.form-group input:focus,
+
+.form-group textarea:focus,
+
+.form-group select:focus{
+
+    outline:none;
+
+    border-color:var(--color-primary);
+
+    box-shadow:0 0 0 4px rgba(233,30,99,.10);
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:140px;
+
+}
+
+.full-width{
+
+    grid-column:1 / -1;
+
+}
+
+
+/* =====================================================
+                    IMAGE PREVIEW
+===================================================== */
+
+.image-preview{
+
+    grid-column:1 / -1;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:10px;
+
+}
+
+.image-preview img{
+
+    width:200px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:2px dashed var(--color-border);
+
+    background:#FAFAFA;
+
+}
+
+
+/* =====================================================
+                    MODAL ACTIONS
+===================================================== */
+
+.modal-actions{
+
+    grid-column:1 / -1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:16px;
+
+    margin-top:15px;
+
+}
+
+
+/* =====================================================
+                    SECONDARY BUTTON
+===================================================== */
+
+.secondary-btn{
+
+    padding:14px 24px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#F3F3F3;
+
+    color:var(--color-text);
+
+    font-family:inherit;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#E8E8E8;
+
+}
+/* =====================================================
+                    PRODUCT ICONS
+===================================================== */
+
+.icon{
+    width:18px;
+    height:18px;
+    display:block;
+    flex-shrink:0;
+}

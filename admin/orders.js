@@ -120,9 +120,31 @@ let selectedOrderId = null;
                 LOAD ORDERS
 ===================================================== */
 
-async function loadOrders() {
+async function loadOrders(){
 
-    try {
+    try{
+
+        ordersTableBody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    class="loading-cell"
+                >
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    Loading Orders...
+
+                </td>
+
+            </tr>
+
+        `;
+
+        emptyState.classList.add("hidden");
+
 
         const snapshot = await getDocs(
 
@@ -136,49 +158,89 @@ async function loadOrders() {
 
         );
 
-        orders = [];
 
-        snapshot.forEach((document) => {
+        orders = snapshot.docs.map(
 
-            orders.push({
+            (document) => ({
 
                 id: document.id,
 
                 ...document.data()
 
-            });
+            })
 
-        });
-        console.log("Orders:", orders);
-        console.log("Total Orders:", orders.length);
+        );
 
-        renderOrders(orders);
+
+        console.log(
+
+            "Manage Orders - Firestore documents:",
+
+            orders
+
+        );
+
+
+        console.log(
+
+            "Manage Orders - Total:",
+
+            orders.length
+
+        );
+
+
+        filterOrders();
+
 
     }
 
-    catch (error) {
+    catch(error){
 
         console.error(
 
-            "Error loading orders:",
+            "Manage Orders - Firestore error:",
 
             error
 
         );
 
+
+        orders = [];
+
+        ordersTableBody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    class="loading-cell"
+                >
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    Unable to load orders.
+
+                </td>
+
+            </tr>
+
+        `;
+
     }
 
 }
 
+
 /* =====================================================
-                RENDER ORDERS
+                    RENDER ORDERS
 ===================================================== */
 
-function renderOrders(ordersList) {
+function renderOrders(ordersList){
 
     ordersTableBody.innerHTML = "";
 
-    if (ordersList.length === 0) {
+    if(!ordersList || ordersList.length === 0){
 
         emptyState.classList.remove("hidden");
 
@@ -188,23 +250,36 @@ function renderOrders(ordersList) {
 
     emptyState.classList.add("hidden");
 
+
     ordersList.forEach((order) => {
 
         const row = document.createElement("tr");
 
         row.innerHTML = `
 
-            <td>${order.orderId || order.id}</td>
+            <td>
+                ${order.orderId || order.id}
+            </td>
 
-            <td>${order.customerName || "-"}</td>
+            <td>
+                ${order.customer?.name || order.customerName || "-"}
+            </td>
 
-            <td>${order.phone || "-"}</td>
+            <td>
+            ${order.customer?.phone || order.phone || "-"}
+            </td>
 
-            <td>₹${Number(order.product?.price || 0).toLocaleString("en-IN")}</td>
+            <td>
+                ₹${Number(
+                    order.product?.price || order.totalAmount || 0
+                ).toLocaleString("en-IN")}
+            </td>
 
             <td>
 
-                <span class="status-badge status-${(order.orderStatus || "Pending").toLowerCase()}">
+                <span class="status-badge status-${(
+                    order.orderStatus || "Pending"
+                ).toLowerCase()}">
 
                     ${order.orderStatus || "Pending"}
 
@@ -212,15 +287,20 @@ function renderOrders(ordersList) {
 
             </td>
 
-            <td>${order.deliveryDate || "-"}</td>
+            <td>
+                ${order.deliveryDate || "-"}
+            </td>
 
-            <td>${order.orderDate || "-"}</td>
+            <td>
+                ${order.orderDate || "-"}
+            </td>
 
             <td>
 
                 <button
                     class="manage-btn"
-                    data-id="${order.id}">
+                    data-id="${order.id}"
+                >
 
                     <i class="fa-solid fa-eye"></i>
 
@@ -237,6 +317,116 @@ function renderOrders(ordersList) {
     });
 
 }
+
+/* =====================================================
+                FILTER ORDERS
+===================================================== */
+
+function filterOrders(){
+
+    const searchTerm = searchInput.value
+        .trim()
+        .toLowerCase();
+
+    const selectedStatus = statusFilter.value;
+
+    const filteredOrders = orders.filter((order) => {
+
+        const orderId = String(
+            order.orderId || order.id || ""
+        ).toLowerCase();
+
+        const customerName = String(
+            order.customerName || ""
+        ).toLowerCase();
+
+        const phone = String(
+            order.phone || ""
+        ).toLowerCase();
+
+        const orderStatus = String(
+            order.orderStatus || "Pending"
+        );
+
+
+        const matchesSearch =
+            orderId.includes(searchTerm) ||
+            customerName.includes(searchTerm) ||
+            phone.includes(searchTerm);
+
+
+        const matchesStatus =
+            selectedStatus === "All" ||
+            orderStatus === selectedStatus;
+
+
+        return matchesSearch && matchesStatus;
+
+    });
+
+
+    renderOrders(filteredOrders);
+
+}
+
+
+/* =====================================================
+                SEARCH ORDERS
+===================================================== */
+
+searchInput.addEventListener(
+
+    "input",
+
+    filterOrders
+
+);
+
+
+/* =====================================================
+                STATUS FILTER
+===================================================== */
+
+statusFilter.addEventListener(
+
+    "change",
+
+    filterOrders
+
+);
+
+
+/* =====================================================
+                REFRESH ORDERS
+===================================================== */
+
+refreshButton.addEventListener(
+
+    "click",
+
+    async () => {
+
+        refreshButton.disabled = true;
+
+        refreshButton.classList.add("loading");
+
+        try {
+
+            await loadOrders();
+
+        }
+
+        finally {
+
+            refreshButton.disabled = false;
+
+            refreshButton.classList.remove("loading");
+
+        }
+
+    }
+
+);
 /* =====================================================
                 OPEN ORDER MODAL
 ===================================================== */
@@ -273,7 +463,7 @@ function openOrderModal(orderId) {
 
             <label>Customer</label>
 
-            <span>${order.customerName || "-"}</span>
+            <span>${order.customer?.name || order.customerName || "-"}</span>
 
         </div>
 
@@ -281,7 +471,7 @@ function openOrderModal(orderId) {
 
             <label>Phone</label>
 
-            <span>${order.phone || "-"}</span>
+            <span>${order.customer?.phone || order.phone || "-"}</span>
 
         </div>
 
@@ -289,7 +479,7 @@ function openOrderModal(orderId) {
 
             <label>Email</label>
 
-            <span>${order.email || "-"}</span>
+            <span>${order.customer?.email || order.email || "-"}</span>
 
         </div>
 
